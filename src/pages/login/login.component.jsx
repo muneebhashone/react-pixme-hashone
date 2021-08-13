@@ -61,6 +61,7 @@ function Login() {
 
   const handleSubmit = () => {
     if (user.currentUser !== null) {
+      setIncorrect("");
       history.push("/admin");
     }
 

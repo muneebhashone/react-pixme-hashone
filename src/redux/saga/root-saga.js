@@ -1,7 +1,7 @@
-import { takeLatest, takeEvery } from "redux-saga/effects";
-import { UserActionTypes } from "../user/user.types";
-import { signInStart } from "../user/user.saga";
+import { all, call } from "redux-saga/effects";
+import { userSaga } from "../user/user.saga";
+import { productsSaga } from "../products/products.saga";
 
 export function* watcherSaga() {
-  yield takeLatest(UserActionTypes.SIGN_IN_START, signInStart);
+  yield all([call(userSaga), call(productsSaga)]);
 }

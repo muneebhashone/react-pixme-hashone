@@ -1,52 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import CustomSelect from "../../components/custom-select/custom-select.component";
 import ProductCard from "../../components/product-card/product-card.component";
 import Display from "../../components/display/display.component";
+import { fetchDrinksStart } from "../../redux/products/products.action";
 import { Container } from "@material-ui/core";
+import { Pagination } from "@material-ui/lab";
 import productImg from "../../assets/product-img.png";
-import image1 from "../../assets/product-image-1.png";
-import image2 from "../../assets/product-image-2.png";
-import image3 from "../../assets/product-image-3.png";
-import image4 from "../../assets/product-image-4.png";
 import "./products.styles.css";
 
-const productsArray = [
-  {
-    id: 1,
-    title: "Product 1",
-    image: image1,
-    starRating: 3,
-    totalRatings: 45,
-    like: true,
-  },
-  {
-    id: 2,
-    title: "Product 2",
-    image: image2,
-    starRating: 4,
-    totalRatings: 20,
-    like: true,
-  },
-  {
-    id: 3,
-    title: "Product 3",
-    image: image3,
-    starRating: 5,
-    totalRatings: 30,
-    like: false,
-  },
-  {
-    id: 4,
-    title: "Product 4",
-    image: image4,
-    starRating: 2.5,
-    totalRatings: 10,
-    like: false,
-  },
-];
-
 function Products() {
-  let [products, setProducts] = useState(productsArray);
+  // const [products, setProducts] = useState(productsArray);
+  const { drinks: drinks } = useSelector((state) => state.drinks);
+  const dispatch = useDispatch();
+  const [pagination, setPagination] = useState(false);
+  const isFetching = useSelector((state) => state.drinks.isFetching);
+
+  useEffect(() => {
+    if (drinks === null) {
+      dispatch(fetchDrinksStart(1, 1));
+    } else {
+      setPagination(true);
+      console.log(drinks);
+    }
+  }, [drinks]);
+
+  const handlePaginationChange = (page) => {
+    dispatch(fetchDrinksStart(page, 1));
+  };
 
   return (
     <Container>
@@ -66,6 +47,7 @@ function Products() {
               <option value="option-1">Option 1</option>
               <option value="option-2">Option 1</option>
             </CustomSelect>
+
             <CustomSelect name="color_filter" id="color_filter">
               <option value="0" disabled selected>
                 Color
@@ -90,20 +72,32 @@ function Products() {
           </div>
         </div>
         <div className="products_listing">
-          {products.map(
-            ({ id, title, image, totalRatings, starRating, like }) => {
+          {isFetching === true ? (
+            <div>Loading...</div>
+          ) : (
+            drinks.data.map((wine) => {
               return (
                 <ProductCard
-                  key={id}
-                  title={title}
-                  productImg={image}
-                  totalRatings={totalRatings}
-                  starRating={starRating}
-                  linkTo={`?id=${id}`}
-                  like={like}
+                  key={wine.id}
+                  title={wine.wine_title}
+                  productImg={wine.wine_image}
+                  totalRatings={4}
+                  starRating={4}
+                  linkTo={`?id=${wine.id}`}
+                  like={false}
                 />
               );
-            }
+            })
+          )}
+        </div>
+        <div className="product-pagination">
+          {isFetching === true && pagination === false ? null : (
+            <Pagination
+              page={Number(drinks.current_page)}
+              count={drinks.total_pages}
+              shape="rounded"
+              onChange={(event, page) => handlePaginationChange(page)}
+            />
           )}
         </div>
       </div>

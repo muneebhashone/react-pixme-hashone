@@ -1,6 +1,7 @@
 import axios from "axios";
+import { UserActionTypes } from "../user/user.types";
 import { signInSuccess, signInFailure } from "./user.action";
-import { put, call } from "redux-saga/effects";
+import { put, call, takeLatest } from "redux-saga/effects";
 
 function loginRequest(email, password) {
   return axios.post(
@@ -22,4 +23,8 @@ export function* signInStart({ payload: { email, password } }) {
     console.log("error", err.message);
     yield put(signInFailure(String(err.message)));
   }
+}
+
+export function* userSaga() {
+  yield takeLatest(UserActionTypes.SIGN_IN_START, signInStart);
 }
