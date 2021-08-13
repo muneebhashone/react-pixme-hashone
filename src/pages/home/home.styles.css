@@ -1,0 +1,70 @@
+.home {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_btns {
+  display: flex;
+  gap: 30px;
+  position: relative;
+  top: 70px;
+}
+
+h1.home_main-heading {
+  font-size: 7.2em;
+  color: white;
+  font-weight: 600;
+  width: 50%;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+form.home_search {
+  background-color: white;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 100px;
+}
+
+form.home_search * {
+  border: none;
+  outline: none;
+  height: 100%;
+}
+
+form.home_search input {
+  padding: 10px 20px;
+  width: 570px;
+  font-size: 16px;
+  font-family: "Raleway";
+  font-weight: 700;
+}
+
+button.home_search-btn {
+  background-color: #c1272d;
+  color: white;
+  padding: 0px 60px;
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 18px;
+  margin-left: 13px;
+  border-radius: 100px;
+}
+
+form.home_search select {
+  padding: 0px 11px;
+  /* width: 116px; */
+  font-size: 16px;
+  font-family: "Raleway";
+  font-weight: 700;
+}
+
+form.home_search input::placeholder {
+  color: #bfbfbf;
+}

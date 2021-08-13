@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Muneeb Hussain",
+      "email": "muneebhussainmodi@gmail.com",
+      "number": "03363380567",
+      "password": "admin123"
+    },
+    {
+      "id": 2,
+      "name": "Mujeeb Hussain",
+      "email": "mujeebhussainmodi@gmail.com",
+      "number": "1234567890",
+      "password": "12345678"
+    },
+    {
+      "name": "Asad Ali",
+      "email": "asadali@gmail.com",
+      "number": "03363380123",
+      "password": "admin123456",
+      "id": 3
+    },
+    {
+      "name": "Muneeb Hussain",
+      "email": "rahib@gmail.com",
+      "number": 12345678910,
+      "password": "25252525",
+      "id": 4
+    },
+    {
+      "name": "Abdul Basit",
+      "email": "abdulbasit@gmail.com",
+      "number": 12345678910,
+      "password": "25589633",
+      "id": 5
+    },
+    {
+      "name": "Shariq Ali",
+      "email": "shariqali@gmail.com",
+      "number": 56457894516,
+      "password": "passsword",
+      "id": 6
+    },
+    {
+      "name": "new user",
+      "email": "132456@gmail.com",
+      "number": 12345678910,
+      "password": "123456789",
+      "id": 7
+    },
+    {
+      "name": "one more user",
+      "email": "kokokoko@gmail.com",
+      "number": 14725836910,
+      "password": "123456789ff",
+      "id": 8
+    }
+  ]
+}

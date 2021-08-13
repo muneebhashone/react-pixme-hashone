@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --defaultPadding: 80px;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  color: #777777;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* .container {
+  max-width: 1170px;
+  margin: 0 auto;
+} */
+
+p,
+button,
+a {
+  font-size: 1.4em;
+}
+
+h4 {
+  font-size: 1.6em;
+}
+
+h1 {
+  font-size: 2.4em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+h5 {
+  font-size: 1.4em;
+}
+
+h6 {
+  font-size: 1.2em;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: "Raleway", sans-serif !important;
+}

@@ -1,0 +1,39 @@
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-home {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+ul.footer_menu {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+ul.footer_menu li a,
+ul.footer_menu li {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-home ul.footer_menu li a,
+.footer-home ul.footer_menu li,
+.footer-home .footer_copyright {
+  color: white;
+}
+
+.footer_copyright {
+  font-size: 14px;
+  color: black;
+}
+
+.footer {
+  padding: 20px 0px;
+}

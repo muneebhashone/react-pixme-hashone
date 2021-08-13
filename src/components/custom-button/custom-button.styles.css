@@ -1,0 +1,36 @@
+button.custom-button {
+  border: none;
+  background-color: #c1272d;
+  color: white;
+  padding: 15px 10px;
+  font-size: 16px;
+  font-family: "Raleway";
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.custom-button:hover {
+  opacity: 0.9;
+  transition: all ease 0.2s;
+}
+
+button.facebook-btn.custom-button,
+button.google-btn.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+button.facebook-btn.custom-button {
+  background-color: #3b5998;
+}
+
+button.google-btn.custom-button {
+  background-color: #cd2900;
+}
+
+.custom-button_icon {
+  font-size: 20px;
+}

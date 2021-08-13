@@ -1,0 +1,27 @@
+a.icon-box {
+  display: inline-flex;
+  align-items: center;
+  background-color: #c1272d;
+  padding: 10px 12px;
+  color: white;
+  text-decoration: none;
+  gap: 10px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.icon-box_icon {
+  color: white;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-box_right .icon-box_right-subtitle {
+  font-size: 14px;
+}
+
+.icon-box_right .icon-box_right-title {
+  font-size: 24px;
+  font-weight: 700;
+}
