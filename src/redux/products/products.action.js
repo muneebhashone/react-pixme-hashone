@@ -14,3 +14,32 @@ export const fetchDrinksFailure = (errorMessage) => ({
   type: ProductsActionTypes.FETCH_DRINKS_FAILURE,
   payload: errorMessage,
 });
+
+export const fetchSingleDrinkStart = (productId) => ({
+  type: ProductsActionTypes.FETCH_SINGLE_DRINK_START,
+  payload: productId,
+});
+
+export const fetchSingleDrinkSuccess = (singleProduct) => ({
+  type: ProductsActionTypes.FETCH_SINGLE_DRINK_SUCCESS,
+  payload: singleProduct,
+});
+
+export const singleDrinkUnmount = () => ({
+  type: ProductsActionTypes.SINGLE_DRINK_UNMOUNT,
+});
+
+export const fetchFlavoursStart = (pageNumber, startingPoint) => ({
+  type: ProductsActionTypes.FETCH_FLAVOURS_START,
+  payload: { pageNumber, startingPoint },
+});
+
+export const fetchFlavoursSuccess = (flavours) => ({
+  type: ProductsActionTypes.FETCH_FLAVOURS_SUCCESS,
+  payload: flavours,
+});
+
+export const fetchFlavoursFailure = (errorMessage) => ({
+  type: ProductsActionTypes.FETCH_FLAVOURS_FAILURE,
+  payload: errorMessage,
+});

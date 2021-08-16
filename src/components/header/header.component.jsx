@@ -48,7 +48,7 @@ function Header({ variation }) {
             </form>
           </div>
           <div className="header_nav-items">
-            <Link to="#">Spirits</Link>
+            <Link to="/drinks">Spirits</Link>
             <Link to="#">Ingredients</Link>
           </div>
           <div className="header_right">
