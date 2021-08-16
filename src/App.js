@@ -17,57 +17,57 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/pixme/">
           <Header variation="home" />
           <Home />
           <Footer variation="home" />
         </Route>
-        <Route path="/products/single">
+        <Route path="/pixme/products/single">
           <Header />
           <ProductSingle />
           <Footer />
         </Route>
-        <Route path="/products">
+        <Route path="/pixme/products">
           <Header />
           <Products />
           <Footer />
         </Route>
-        <Route path="/signup">
+        <Route path="/pixme/signup">
           <Header />
           <Signup />
           <Footer />
         </Route>
-        <Route path="/login">
+        <Route path="/pixme/login">
           <Header />
           <Login />
           <Footer />
         </Route>
-        <Route path="/recover">
+        <Route path="/pixme/recover">
           <Header />
           <Recover />
           <Footer />
         </Route>
-        <Route path="/admin/subscription">
+        <Route path="/pixme/admin/subscription">
           <Header />
           <Subscription />
           <Footer />
         </Route>
-        <Route path="/admin/wishlist">
+        <Route path="/pixme/admin/wishlist">
           <Header />
           <Wishlist />
           <Footer />
         </Route>
-        <Route path="/admin/reviews">
+        <Route path="/pixme/admin/reviews">
           <Header />
           <Reviews />
           <Footer />
         </Route>
-        <Route path="/admin/signout">
+        <Route path="/pixme/admin/signout">
           <Header />
           <Signout />
           <Footer />
         </Route>
-        <Route path="/admin">
+        <Route path="/pixme/admin">
           <Header />
           <Profile />
           <Footer />
