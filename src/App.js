@@ -2,8 +2,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/home.component";
 import Header from "./components/header/header.component";
 import Footer from "./components/footer/footer.component";
-import Products from "./pages/products/products.component";
-import ProductSingle from "./pages/product-single/product-single.component";
+import DrinksOverview from "./pages/drinks-overview/drinks-overview.component";
+import FlavoursOverview from "./pages/flavours-overview/flavours-overview.component";
+import AllFlavours from "./pages/all-flavours/all-flavours.component";
+import DrinkSingle from "./pages/drink-single/drink-single.component";
 import Signup from "./pages/signup/signup.component";
 import Login from "./pages/login/login.component";
 import Recover from "./pages/recover/recover.component";
@@ -22,14 +24,29 @@ function App() {
           <Home />
           <Footer variation="home" />
         </Route>
-        <Route path="/pixme/products/single">
+        <Route path="/flavours/:flavourId">
           <Header />
-          <ProductSingle />
+          <DrinkSingle />
           <Footer />
         </Route>
-        <Route path="/pixme/products">
+        <Route path="/drinks/flavour/:drinkId">
           <Header />
-          <Products />
+          <FlavoursOverview />
+          <Footer />
+        </Route>
+        <Route path="/flavours/:flavourId">
+          <Header />
+          <DrinkSingle />
+          <Footer />
+        </Route>
+        <Route path="/flavours">
+          <Header />
+          <AllFlavours />
+          <Footer />
+        </Route>
+        <Route path="/drinks">
+          <Header />
+          <DrinksOverview />
           <Footer />
         </Route>
         <Route path="/pixme/signup">

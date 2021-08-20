@@ -2,10 +2,11 @@
   display: flex;
   gap: 35px;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .display_img img {
-  width: 560px;
+  width: 430px;
 }
 
 h1.display_title {

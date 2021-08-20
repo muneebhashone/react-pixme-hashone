@@ -15,6 +15,8 @@
 
 .product-single_img img {
   width: 160px;
+  height: 580px;
+  object-fit: cover;
 }
 
 h2.product-single_heading {
@@ -35,7 +37,7 @@ li.ingredients-list-item {
 }
 
 span.list-item_quantity {
-  width: 25%;
+  min-width: 25%;
 }
 
 .product-single_ingredients-list,
