@@ -9,10 +9,12 @@ const INITIAL_STATE = {
   error: "",
   isFetching: false,
   singleDrink: null,
+  singleFlavour: null,
 };
 
 const productsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case ProductsActionTypes.FETCH_SINGLE_FLAVOUR_START:
     case ProductsActionTypes.FETCH_SINGLE_DRINK_START:
     case ProductsActionTypes.FETCH_FLAVOURS_START:
     case ProductsActionTypes.FETCH_DRINKS_START:
@@ -42,10 +44,23 @@ const productsReducer = (state = INITIAL_STATE, action) => {
         isFetching: false,
       };
 
+    case ProductsActionTypes.FETCH_SINGLE_FLAVOUR_SUCCESS:
+      return {
+        ...state,
+        singleFlavour: action.payload,
+        isFetching: false,
+      };
+
     case ProductsActionTypes.SINGLE_DRINK_UNMOUNT:
       return {
         ...state,
         singleDrink: null,
+      };
+
+    case ProductsActionTypes.SINGLE_FLAVOUR_UNMOUNT:
+      return {
+        ...state,
+        singleFlavour: null,
       };
 
     case ProductsActionTypes.FETCH_FLAVOURS_FAILURE:

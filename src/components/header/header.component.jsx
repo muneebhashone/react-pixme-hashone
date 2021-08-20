@@ -49,7 +49,7 @@ function Header({ variation }) {
           </div>
           <div className="header_nav-items">
             <Link to="/drinks">Spirits</Link>
-            <Link to="#">Ingredients</Link>
+            <Link to="/flavours">Ingredients</Link>
           </div>
           <div className="header_right">
             <div className="header_nav-items">

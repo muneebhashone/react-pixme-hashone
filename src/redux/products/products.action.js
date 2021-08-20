@@ -43,3 +43,17 @@ export const fetchFlavoursFailure = (errorMessage) => ({
   type: ProductsActionTypes.FETCH_FLAVOURS_FAILURE,
   payload: errorMessage,
 });
+
+export const fetchSingleFlavourStart = (flavourId) => ({
+  type: ProductsActionTypes.FETCH_SINGLE_FLAVOUR_START,
+  payload: flavourId,
+});
+
+export const fetchSingleFlavourSuccess = (singleFlavour) => ({
+  type: ProductsActionTypes.FETCH_SINGLE_FLAVOUR_SUCCESS,
+  payload: singleFlavour,
+});
+
+export const singleFlavourUnmount = () => ({
+  type: ProductsActionTypes.SINGLE_FLAVOUR_UNMOUNT,
+});

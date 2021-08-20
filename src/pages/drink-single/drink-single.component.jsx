@@ -3,25 +3,30 @@ import Display from "../../components/display/display.component";
 import IconBox from "../../components/icon-box/icon-box.component";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSingleDrinkStart } from "../../redux/products/products.action";
+import {
+  fetchSingleFlavourStart,
+  singleFlavourUnmount,
+} from "../../redux/products/products.action";
 import { useParams } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
-import productSingleImg from "../../assets/product-single.png";
-import productBottleImg from "../../assets/bottle.png";
 import "./drink-single.styles.css";
 
 function ProductSingle() {
   const dispatch = useDispatch();
-  const { isFetching, singleDrink } = useSelector((state) => state.drinks);
+  const { isFetching, singleFlavour } = useSelector((state) => state.drinks);
   const params = useParams();
-  const productId = params.id;
+  const productId = params.flavourId;
 
   useEffect(() => {
-    dispatch(fetchSingleDrinkStart(productId));
+    dispatch(fetchSingleFlavourStart(productId));
+
+    return () => {
+      dispatch(singleFlavourUnmount());
+    };
   }, []);
 
-  if (isFetching) {
+  if (isFetching || singleFlavour === null) {
     return <LoadingSpinner />;
   }
 
@@ -30,9 +35,9 @@ function ProductSingle() {
       <div className="product-single">
         <div className="product-single_top">
           <Display
-            title="Smirnoff Summer Punch"
-            paragraph="Lorem Ipsum is simply a sample text used in the printing and stacking industry. It has been the industry's main test text since the 1500s, when an unknown printer took a lot of random text to make a print sample. It became known in the 1960s with the release of Letraset pages, and more recently with text editors such as Aldus PageMaker, which contain various versions of Lorem Ipsum."
-            image={productSingleImg}
+            title={singleFlavour.wine_flavour_name}
+            paragraph={singleFlavour.wine_flavour_description}
+            image={singleFlavour.wine_flavour_image}
             starRating={4}
             totalRatings={40}
           />
@@ -41,53 +46,41 @@ function ProductSingle() {
           <div className="product-single_ingredients">
             <h2 className="product-single_heading">Ingredients</h2>
             <ul className="product-single_ingredients-list">
-              <li className="ingredients-list-item">
-                <span className="list-item_quantity">400ml</span>
-                <span className="list-item_name">Smirnoff No. 21® Vodka</span>
-              </li>
-              <li className="ingredients-list-item">
-                <span className="list-item_quantity">600ml</span>
-                <span className="list-item_name">Smirnoff No. 21® Vodka</span>
-              </li>
+              {singleFlavour.flavour_wine_ingredients.map((ingredient) => (
+                <li key={ingredient.id} className="ingredients-list-item">
+                  <span className="list-item_quantity">{ingredient.label}</span>
+                  <span className="list-item_name">
+                    {ingredient.ingredients_details}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="product-single_make">
             <h2 className="product-single_heading">How to make</h2>
             <ul className="product-single_steps-list">
-              <li className="steps-list-item">
-                <span className="list-item_index">1-</span>
-                <span className="list-item_heading">
-                  Fill a large bowl with ice.
-                </span>
-                <span className="list-item_desc">
-                  Add large chunks of ice, or large cubes, to a punch bowl, or
-                  container.
-                </span>
-              </li>
-              <li className="steps-list-item">
-                <span className="list-item_index">2-</span>
-                <span className="list-item_heading">
-                  Fill a large bowl with ice.
-                </span>
-                <span className="list-item_desc">
-                  Add large chunks of ice, or large cubes, to a punch bowl, or
-                  container.
-                </span>
-              </li>
+              {singleFlavour.flavour_wine_making_steps.map((step) => (
+                <li key={step.id} className="steps-list-item">
+                  <span className="list-item_index">{step.sequence}-</span>
+                  <span className="list-item_heading">{step.label}</span>
+                  <span className="list-item_desc">{step.steps_details}</span>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="product-single_img">
-            <img src={productBottleImg} alt="" />
+            <img
+              src={singleFlavour.flavour_wine_dictionary.wine_image}
+              alt=""
+            />
           </div>
         </div>
         <div className="product-single_last">
           <h2 className="product-single_heading">
-            Smirnoff No. 21&#174; Vodka
+            {singleFlavour.flavour_wine_dictionary.wine_title}
           </h2>
           <p className="product-single_paragraph">
-            A vodka that's known around the world, Smirnoff is born of a long
-            history of charcoal filtration to give smooth mouth feel and a pure,
-            clean flavour.
+            {singleFlavour.flavour_wine_dictionary.wine_description}
           </p>
         </div>
         <div className="product-single_bottom-btns">

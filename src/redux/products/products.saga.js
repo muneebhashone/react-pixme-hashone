@@ -5,6 +5,7 @@ import {
   fetchSingleDrinkSuccess,
   fetchFlavoursSuccess,
   fetchFlavoursFailure,
+  fetchSingleFlavourSuccess,
 } from "./products.action";
 import { ProductsActionTypes } from "./products.types";
 import { put, call, all, takeLatest } from "redux-saga/effects";
@@ -19,6 +20,12 @@ function fetchDrinksRequest(pageNumber, startingPoint) {
 function fetchSingleDrinkRequest(productId) {
   return axios.get(
     `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getSingleWineById/${productId}`
+  );
+}
+
+function fetchSingleFlavourRequest(wineId) {
+  return axios.get(
+    `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getSingleWineFlavourById/${wineId}`
   );
 }
 
@@ -67,6 +74,20 @@ function* fetchFlavoursStart({ payload: { pageNumber, startingPoint } }) {
   }
 }
 
+function* fetchSingleFlavourStart({ payload }) {
+  try {
+    const { data } = yield call(fetchSingleFlavourRequest, payload);
+    if (data.data) {
+      yield put(fetchSingleFlavourSuccess(data.data));
+    } else {
+      yield put(fetchFlavoursFailure("Error Occured"));
+    }
+  } catch (err) {
+    console.log("Error", err.message);
+    yield put(fetchFlavoursFailure(err.message));
+  }
+}
+
 // Root Saga
 export function* productsSaga() {
   yield all([
@@ -76,5 +97,9 @@ export function* productsSaga() {
       fetchSingleDrinkStart
     ),
     takeLatest(ProductsActionTypes.FETCH_FLAVOURS_START, fetchFlavoursStart),
+    takeLatest(
+      ProductsActionTypes.FETCH_SINGLE_FLAVOUR_START,
+      fetchSingleFlavourStart
+    ),
   ]);
 }

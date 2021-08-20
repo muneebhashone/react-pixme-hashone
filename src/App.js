@@ -36,7 +36,7 @@ function App() {
         </Route>
         <Route path="/flavours/:flavourId">
           <Header />
-          <FlavoursOverview />
+          <DrinkSingle />
           <Footer />
         </Route>
         <Route path="/flavours">
