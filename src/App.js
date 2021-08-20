@@ -24,27 +24,27 @@ function App() {
           <Home />
           <Footer variation="home" />
         </Route>
-        <Route path="/flavours/:flavourId">
+        <Route path="/pixme/flavours/:flavourId">
           <Header />
           <DrinkSingle />
           <Footer />
         </Route>
-        <Route path="/drinks/flavour/:drinkId">
+        <Route path="/pixme/drinks/flavour/:drinkId">
           <Header />
           <FlavoursOverview />
           <Footer />
         </Route>
-        <Route path="/flavours/:flavourId">
+        <Route path="/pixme/flavours/:flavourId">
           <Header />
           <DrinkSingle />
           <Footer />
         </Route>
-        <Route path="/flavours">
+        <Route path="/pixme/flavours">
           <Header />
           <AllFlavours />
           <Footer />
         </Route>
-        <Route path="/drinks">
+        <Route path="/pixme/drinks">
           <Header />
           <DrinksOverview />
           <Footer />

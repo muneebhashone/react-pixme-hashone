@@ -48,8 +48,8 @@ function Header({ variation }) {
             </form>
           </div>
           <div className="header_nav-items">
-            <Link to="/drinks">Spirits</Link>
-            <Link to="/flavours">Ingredients</Link>
+            <Link to="/pixme/drinks">Spirits</Link>
+            <Link to="/pixme/flavours">Ingredients</Link>
           </div>
           <div className="header_right">
             <div className="header_nav-items">
