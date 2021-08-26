@@ -31,7 +31,7 @@ function Header({ variation }) {
     <div className={`${variation === "home" ? "header-home" : ""} header`}>
       <Container>
         <div className="container">
-          <Link to="/" className="header_brand">
+          <Link to="/pixme" className="header_brand">
             <img src={logo} alt="" />
           </Link>
           <div className="header_search">
@@ -65,8 +65,8 @@ function Header({ variation }) {
                 </Button>
               ) : (
                 <>
-                  <Link to="/signup">Sign Up</Link>
-                  <Link to="/login">Login</Link>
+                  <Link to="/pixme/signup">Sign Up</Link>
+                  <Link to="/pixme/login">Login</Link>
                 </>
               )}
             </div>

@@ -23,7 +23,7 @@ function ProductCard({
   };
 
   return (
-    <div className="product-card">
+    <Link to={linkTo} className="product-card">
       <div className="product-card_top">
         <div className="product-card_image">
           <img src={productImg} alt="" />
@@ -51,11 +51,9 @@ function ProductCard({
         </div>
       </div>
       <div className="product-card_bottom">
-        <Link to={linkTo} className="product-card_title">
-          {title}
-        </Link>
+        <div className="product-card_title">{title}</div>
       </div>
-    </div>
+    </Link>
   );
 }
 
