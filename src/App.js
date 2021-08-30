@@ -14,6 +14,7 @@ import Subscription from "./pages/admin/subscription/subscription.component";
 import Wishlist from "./pages/admin/wishlist/wishlist.component";
 import Reviews from "./pages/admin/reviews/reviews.component";
 import Signout from "./pages/admin/signout/signout.component";
+import Search from "./pages/search/search.component";
 
 function App() {
   return (
@@ -47,6 +48,11 @@ function App() {
         <Route path="/pixme/drinks">
           <Header />
           <DrinksOverview />
+          <Footer />
+        </Route>
+        <Route path="/pixme/search">
+          <Header />
+          <Search />
           <Footer />
         </Route>
         <Route path="/pixme/signup">

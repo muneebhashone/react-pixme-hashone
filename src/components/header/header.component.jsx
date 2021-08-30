@@ -6,6 +6,7 @@ import { BsSearch, BsGrid3X3Gap } from "react-icons/bs";
 import { Container, Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCurrentUser } from "../../redux/user/user.action";
+import SearchInput from "../search-input/search-input.component";
 import "./header.styles.css";
 
 function Header({ variation }) {
@@ -34,8 +35,9 @@ function Header({ variation }) {
           <Link to="/pixme" className="header_brand">
             <img src={logo} alt="" />
           </Link>
-          <div className="header_search">
-            <form>
+          <SearchInput />
+          {/* <div className="header_search">
+            <form onSubmit={(event) => handleSearchSubmit(event)}>
               <input
                 type="text"
                 name="search"
@@ -46,7 +48,7 @@ function Header({ variation }) {
                 <BsSearch />
               </button>
             </form>
-          </div>
+          </div> */}
           <div className="header_nav-items">
             <Link to="/pixme/drinks">Spirits</Link>
             <Link to="/pixme/flavours">Ingredients</Link>

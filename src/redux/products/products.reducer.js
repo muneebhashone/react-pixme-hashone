@@ -1,4 +1,3 @@
-import ProductCard from "../../components/product-card/product-card.component";
 import { ProductsActionTypes } from "./products.types";
 
 const INITIAL_STATE = {
@@ -10,10 +9,12 @@ const INITIAL_STATE = {
   isFetching: false,
   singleDrink: null,
   singleFlavour: null,
+  searchData: null,
 };
 
 const productsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case ProductsActionTypes.FETCH_SEARCH_START:
     case ProductsActionTypes.FETCH_SINGLE_FLAVOUR_START:
     case ProductsActionTypes.FETCH_SINGLE_DRINK_START:
     case ProductsActionTypes.FETCH_FLAVOURS_START:
@@ -27,6 +28,13 @@ const productsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         drinks: action.payload,
+        isFetching: false,
+      };
+
+    case ProductsActionTypes.FETCH_SEARCH_SUCCESS:
+      return {
+        ...state,
+        searchData: action.payload,
         isFetching: false,
       };
 
@@ -65,6 +73,7 @@ const productsReducer = (state = INITIAL_STATE, action) => {
 
     case ProductsActionTypes.FETCH_FLAVOURS_FAILURE:
     case ProductsActionTypes.FETCH_DRINKS_FAILURE:
+    case ProductsActionTypes.FETCH_SEARCH_FAILURE:
       return {
         ...state,
         error: action.payload,

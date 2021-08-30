@@ -6,6 +6,8 @@ import {
   fetchFlavoursSuccess,
   fetchFlavoursFailure,
   fetchSingleFlavourSuccess,
+  fetchSearchSuccess,
+  fetchSearchFailure,
 } from "./products.action";
 import { ProductsActionTypes } from "./products.types";
 import { put, call, all, takeLatest } from "redux-saga/effects";
@@ -33,6 +35,20 @@ function fetchFlavoursRequest(pageNumber, startingPoint) {
   return axios.get(
     `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getAllWinesFlavoursWeb?page=${pageNumber}&starting_point=${startingPoint}`
   );
+}
+
+function fetchSearchRequest(query, type) {
+  if (type === "spirits") {
+    return axios.get(
+      `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getAllWinesWeb?page=1&starting_point=0&search=${query}`
+    );
+  }
+
+  if (type === "ingredients") {
+    return axios.get(
+      `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getAllWinesFlavoursWeb?page=1&starting_point=0&search=${query}`
+    );
+  }
 }
 
 // Sagas
@@ -88,6 +104,21 @@ function* fetchSingleFlavourStart({ payload }) {
   }
 }
 
+function* fetchSearchStart({ payload }) {
+  console.log(payload);
+  try {
+    const { data } = yield call(
+      fetchSearchRequest,
+      payload.query,
+      payload.type
+    );
+    yield put(fetchSearchSuccess(data.data));
+  } catch (err) {
+    console.log("Error", err.message);
+    yield put(fetchSearchFailure(err.message));
+  }
+}
+
 // Root Saga
 export function* productsSaga() {
   yield all([
@@ -101,5 +132,6 @@ export function* productsSaga() {
       ProductsActionTypes.FETCH_SINGLE_FLAVOUR_START,
       fetchSingleFlavourStart
     ),
+    takeLatest(ProductsActionTypes.FETCH_SEARCH_START, fetchSearchStart),
   ]);
 }

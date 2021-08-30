@@ -1,6 +1,7 @@
 import React from "react";
 import homeBg from "../../assets/home-bg.png";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
+import HomeSearch from "../../components/home-search/home-search.component";
 
 import "./home.styles.css";
 import IconBox from "../../components/icon-box/icon-box.component";
@@ -14,7 +15,8 @@ function Home() {
       }}
     >
       <h1 className="home_main-heading">Searching For The Perfect Drink?</h1>
-      <form className="home_search">
+      <HomeSearch />
+      {/* <form className="home_search">
         <input
           type="text"
           name="search"
@@ -26,7 +28,7 @@ function Home() {
           <option value="spirits">Spirits</option>
         </select>
         <button className="home_search-btn">Search</button>
-      </form>
+      </form> */}
       <div className="home_btns">
         <IconBox Icon={FaApple} subtitle="Download on the" title="App Store" />
         <IconBox

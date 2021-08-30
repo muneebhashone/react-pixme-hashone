@@ -57,3 +57,18 @@ export const fetchSingleFlavourSuccess = (singleFlavour) => ({
 export const singleFlavourUnmount = () => ({
   type: ProductsActionTypes.SINGLE_FLAVOUR_UNMOUNT,
 });
+
+export const fetchSearchStart = (query, type) => ({
+  type: ProductsActionTypes.FETCH_SEARCH_START,
+  payload: { query, type },
+});
+
+export const fetchSearchSuccess = (data) => ({
+  type: ProductsActionTypes.FETCH_SEARCH_SUCCESS,
+  payload: data,
+});
+
+export const fetchSearchFailure = (err) => ({
+  type: ProductsActionTypes.FETCH_SEARCH_FAILURE,
+  payload: err,
+});
