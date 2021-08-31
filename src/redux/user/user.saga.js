@@ -29,10 +29,7 @@ function* signInStart({ payload: { email, password } }) {
     } = yield call(loginRequest, email, password);
     yield put(signInSuccess(data));
     yield call(setUserLocal, data);
-    console.log("From Saga:");
-    console.log(data);
   } catch (err) {
-    console.log("error", err.message);
     yield put(signInFailure(String(err.message)));
   }
 }

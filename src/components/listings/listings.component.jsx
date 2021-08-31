@@ -1,6 +1,7 @@
 import React from "react";
 import LoadingSpinner from "../loading-spinner/loading-spinner.component";
 import ProductCard from "../product-card/product-card.component";
+import { Grid } from "@material-ui/core";
 
 function Listings({ data, isFetching, type }) {
   const handleProductData = (data, type) => {
@@ -45,13 +46,17 @@ function Listings({ data, isFetching, type }) {
 
   return (
     <div className="products_listing">
-      {data === null || isFetching === true ? (
-        <LoadingSpinner />
-      ) : data.length === 0 ? (
-        <div>No search results found</div>
-      ) : (
-        handleProductData(data, type)
-      )}
+      <Grid container spacing={6}>
+        {data === null || isFetching === true ? (
+          <LoadingSpinner />
+        ) : data.length === 0 ? (
+          <div>No search results found</div>
+        ) : (
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            {handleProductData(data, type)}
+          </Grid>
+        )}
+      </Grid>
     </div>
   );
 }

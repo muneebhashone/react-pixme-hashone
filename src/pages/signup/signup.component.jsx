@@ -58,7 +58,7 @@ function Signup(props) {
   const classes = useStyles();
   const history = useHistory();
 
-  if (currentUser || localStorage.getItem("currentUser")) {
+  if (localStorage.getItem("currentUser")) {
     history.push("/pixme/customer");
   }
 
@@ -206,8 +206,8 @@ function Signup(props) {
               </Button>
             </form>
           </Container>
-          <Link to="/signup" className="already-member">
-            Create New Account? Sign Up
+          <Link to="/pixme/login" className="already-member">
+            Already have account? Login
           </Link>
         </div>
       </div>

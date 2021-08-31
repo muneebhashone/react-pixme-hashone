@@ -5,6 +5,7 @@ import Store from "./redux/store";
 import "./index.css";
 import App from "./App";
 import { createTheme, ThemeProvider } from "@material-ui/core";
+import Interceptor from "./components/hoc/interceptor";
 
 const customTheme = createTheme({
   typography: {
@@ -28,7 +29,9 @@ const customTheme = createTheme({
 ReactDOM.render(
   <ThemeProvider theme={customTheme}>
     <Provider store={Store}>
-      <App />
+      <Interceptor>
+        <App />
+      </Interceptor>
     </Provider>
   </ThemeProvider>,
   document.getElementById("root")

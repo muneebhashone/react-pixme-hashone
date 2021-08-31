@@ -42,6 +42,7 @@
 .header_nav-items {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 svg.header_menu-icon {

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
 import { Tabs, Tab, Typography, Container, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineHeart, AiOutlineCrown } from "react-icons/ai";
 import { BiLabel } from "react-icons/bi";
 import { BsBoxArrowRight } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 const adminRightWidth = 240;
 
@@ -47,18 +48,10 @@ const useStyles = makeStyles(() => {
   };
 });
 
-function AdminLayout({ children, heading, active, history, match }) {
+function AdminLayout({ children, heading, active }) {
   const [activeTab, setActiveTab] = useState(active);
-
-  // const location = useLocation();
-
-  // const tabsLocation = {
-  //   profile: 0,
-  //   wishlist: 1,
-  //   reviews: 2,
-  //   subscription: 3,
-  //   signout: 4,
-  // };
+  const history = useHistory();
+  const { currentUser } = useSelector((state) => state.user);
 
   const tabsIndex = {
     0: "profile",
@@ -75,9 +68,19 @@ function AdminLayout({ children, heading, active, history, match }) {
     setActiveTab(newValue);
   };
 
+  if (!localStorage.getItem("currentUser")) {
+    history.push("/pixme/login");
+  }
+
   useEffect(() => {
     setActiveTab(active);
   }, [setActiveTab]);
+
+  useEffect(() => {
+    if (!localStorage.getItem("currentUser")) {
+      history.push("/pixme/login");
+    }
+  }, [currentUser]);
 
   return (
     <div>
@@ -146,4 +149,4 @@ function AdminLayout({ children, heading, active, history, match }) {
   );
 }
 
-export default withRouter(AdminLayout);
+export default AdminLayout;

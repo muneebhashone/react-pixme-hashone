@@ -18,13 +18,13 @@
   padding-bottom: var(--defaultPadding);
 }
 
-/* .products_listing {
-  display: grid;
+.products_listing {
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
-  justify-content: space-between;
+  justify-content: space-between; */
   margin-top: 35px;
-} */
+}
 
 .product-pagination {
   margin-top: 35px;

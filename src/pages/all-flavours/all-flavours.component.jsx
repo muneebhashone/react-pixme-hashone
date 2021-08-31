@@ -4,7 +4,7 @@ import { useLocation, useParams } from "react-router-dom";
 import CustomSelect from "../../components/custom-select/custom-select.component";
 import ProductCard from "../../components/product-card/product-card.component";
 import { fetchFlavoursStart } from "../../redux/products/products.action";
-import { Container } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component";
 import "./all-flavours.styles.css";
@@ -75,23 +75,27 @@ function DrinksOverview() {
           </div>
         </div>
         <div className="products_listing">
-          {flavours === null || isFetching === true ? (
-            <LoadingSpinner />
-          ) : (
-            flavours.data.map((flavour) => {
-              return (
-                <ProductCard
-                  key={flavour.id}
-                  title={flavour.wine_flavour_name}
-                  productImg={flavour.wine_flavour_image}
-                  totalRatings={4}
-                  starRating={4}
-                  linkTo={`${location.pathname}/${flavour.id}`}
-                  like={false}
-                />
-              );
-            })
-          )}
+          <Grid container spacing={6}>
+            {flavours === null || isFetching === true ? (
+              <LoadingSpinner />
+            ) : (
+              flavours.data.map((flavour) => {
+                return (
+                  <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <ProductCard
+                      key={flavour.id}
+                      title={flavour.wine_flavour_name}
+                      productImg={flavour.wine_flavour_image}
+                      totalRatings={4}
+                      starRating={4}
+                      linkTo={`${location.pathname}/${flavour.id}`}
+                      like={false}
+                    />
+                  </Grid>
+                );
+              })
+            )}
+          </Grid>
         </div>
         <div className="product-pagination">
           {flavours === null ? null : (

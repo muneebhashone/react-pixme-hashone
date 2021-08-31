@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Button,
   TextField,
   FormHelperText,
+  CircularProgress,
 } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -13,6 +14,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
 import { signInStart } from "../../redux/user/user.action";
+import Alert from "@material-ui/lab/Alert";
 import "./login.styles.css";
 
 const useStyles = makeStyles((theme) => {
@@ -43,14 +45,14 @@ const validationSchema = yup.object({
 });
 
 function Login() {
-  const { currentUser } = useSelector((state) => state.user);
+  const { currentUser, isFetching, error } = useSelector((state) => state.user);
   const history = useHistory();
   const dispatch = useDispatch();
   const classes = useStyles();
 
-  if (currentUser || localStorage.getItem("currentUser")) {
-    history.push("/pixme/customer");
-  }
+  // if (localStorage.getItem("currentUser")) {
+  //   history.push("/pixme/customer");
+  // }
 
   const formik = useFormik({
     initialValues: {
@@ -63,10 +65,18 @@ function Login() {
     },
   });
 
+  useEffect(() => {
+    if (localStorage.getItem("currentUser")) {
+      history.push("/pixme/customer");
+    }
+  }, [currentUser]);
+
   return (
     <Container>
       <div className="login-signup">
         <div className="container">
+          {isFetching ? <CircularProgress /> : null}
+          {error ? <Alert severity="error">Invalid Credentials</Alert> : null}
           <h1 className="page-heading">Login</h1>
           <Container maxWidth="sm">
             <form className="login-signup_form" onSubmit={formik.handleSubmit}>
@@ -129,8 +139,8 @@ function Login() {
               </Button>
             </form>
           </Container>
-          <Link to="/signup" className="already-member">
-            Create New Account? Sign Up
+          <Link to="/pixme/signup" className="already-member">
+            Don't have a account? Sign Up
           </Link>
         </div>
       </div>

@@ -8,7 +8,7 @@ import {
   fetchSingleDrinkStart,
   singleDrinkUnmount,
 } from "../../redux/products/products.action";
-import { Container } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component";
 import "./flavours-overview.styles.css";
 
@@ -77,25 +77,29 @@ function FlavoursOverview() {
           </div>
         </div>
         <div className="products_listing">
-          {singleDrink === null || isFetching === true ? (
-            <LoadingSpinner />
-          ) : singleDrink.wine_flavours.length === 0 ? (
-            <div>No Flavours Founds</div>
-          ) : (
-            singleDrink.wine_flavours.map((flavour) => {
-              return (
-                <ProductCard
-                  key={flavour.id}
-                  title={flavour.wine_flavour_name}
-                  productImg={flavour.wine_flavour_image}
-                  totalRatings={4}
-                  starRating={4}
-                  linkTo={`/pixme/flavours/${flavour.id}`}
-                  like={false}
-                />
-              );
-            })
-          )}
+          <Grid container spacing={6}>
+            {singleDrink === null || isFetching === true ? (
+              <LoadingSpinner />
+            ) : singleDrink.wine_flavours.length === 0 ? (
+              <div>No Flavours Founds</div>
+            ) : (
+              singleDrink.wine_flavours.map((flavour) => {
+                return (
+                  <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <ProductCard
+                      key={flavour.id}
+                      title={flavour.wine_flavour_name}
+                      productImg={flavour.wine_flavour_image}
+                      totalRatings={4}
+                      starRating={4}
+                      linkTo={`/pixme/flavours/${flavour.id}`}
+                      like={false}
+                    />
+                  </Grid>
+                );
+              })
+            )}
+          </Grid>
         </div>
       </div>
     </Container>

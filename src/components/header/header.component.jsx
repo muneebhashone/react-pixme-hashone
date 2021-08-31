@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import user from "../../assets/user.png";
 import { BsSearch, BsGrid3X3Gap } from "react-icons/bs";
+import { useHistory, useLocation } from "react-router-dom";
 import { Container, Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCurrentUser } from "../../redux/user/user.action";
@@ -12,11 +13,14 @@ import "./header.styles.css";
 function Header({ variation }) {
   const { currentUser } = useSelector((state) => state.user);
   const [localUser, setLocalUser] = useState(null);
+  const history = useHistory();
+  const location = useLocation();
 
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(clearCurrentUser());
+    // location.reload();
   };
 
   useEffect(() => {
