@@ -1,7 +1,7 @@
 import axios from "axios";
 import { UserActionTypes } from "../user/user.types";
 import { signInSuccess, signInFailure } from "./user.action";
-import { put, call, takeLatest } from "redux-saga/effects";
+import { put, call, takeLatest, all } from "redux-saga/effects";
 
 function loginRequest(email, password) {
   return axios.post(
@@ -13,18 +13,37 @@ function loginRequest(email, password) {
   );
 }
 
-export function* signInStart({ payload: { email, password } }) {
+function setUserLocal(userObj) {
+  if (localStorage.getItem("currentUser")) {
+    localStorage.removeItem("currentUser");
+    localStorage.setItem("currentUser", JSON.stringify(userObj));
+  } else {
+    localStorage.setItem("currentUser", JSON.stringify(userObj));
+  }
+}
+
+function* signInStart({ payload: { email, password } }) {
   try {
     const {
       data: { data },
     } = yield call(loginRequest, email, password);
     yield put(signInSuccess(data));
+    yield call(setUserLocal, data);
+    console.log("From Saga:");
+    console.log(data);
   } catch (err) {
     console.log("error", err.message);
     yield put(signInFailure(String(err.message)));
   }
 }
 
+function* clearUserLocal() {
+  yield localStorage.removeItem("currentUser");
+}
+
 export function* userSaga() {
-  yield takeLatest(UserActionTypes.SIGN_IN_START, signInStart);
+  yield all([
+    takeLatest(UserActionTypes.SIGN_IN_START, signInStart),
+    takeLatest(UserActionTypes.CLEAR_CURRENT_USER, clearUserLocal),
+  ]);
 }

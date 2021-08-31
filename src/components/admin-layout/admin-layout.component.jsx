@@ -71,7 +71,7 @@ function AdminLayout({ children, heading, active, history, match }) {
   const classes = useStyles();
 
   const handleChange = (event, newValue) => {
-    history.push(`/admin/${tabsIndex[newValue]}`);
+    history.push(`/pixme/customer/${tabsIndex[newValue]}`);
     setActiveTab(newValue);
   };
 

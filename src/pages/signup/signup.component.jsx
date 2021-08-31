@@ -8,7 +8,7 @@ import {
   FormHelperText,
 } from "@material-ui/core";
 import axios from "axios";
-import { useFormik, ErrorMessage } from "formik";
+import { useFormik } from "formik";
 import * as yup from "yup";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
@@ -16,6 +16,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/user/user.action";
+import { useHistory } from "react-router";
 import "./signup.styles.css";
 
 const useStyles = makeStyles((theme) => {
@@ -55,6 +56,12 @@ function Signup(props) {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const classes = useStyles();
+  const history = useHistory();
+
+  if (currentUser || localStorage.getItem("currentUser")) {
+    history.push("/pixme/customer");
+  }
+
   const formik = useFormik({
     initialValues: {
       name: "",

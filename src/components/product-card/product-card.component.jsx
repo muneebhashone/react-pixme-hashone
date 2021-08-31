@@ -28,27 +28,31 @@ function ProductCard({
         <div className="product-card_image">
           <img src={productImg} alt="" />
         </div>
-        <div
-          className={`${
-            liked === true ? "product-card_heart-liked" : ""
-          } product-card_heart`}
-          onClick={handleLike}
-        >
-          {liked === true ? <FaHeart /> : <FaRegHeart />}
-        </div>
-        <div className="product-card_stars-container">
-          <div className="product-card_stars">
-            <ReactStars
-              count={5}
-              isHalf={true}
-              value={starRating}
-              edit={false}
-              size={30}
-              activeColor="#ffd700"
-            />
-            <div className="product-card_stars-total">{totalRatings}</div>
+        {like ? (
+          <div
+            className={`${
+              liked === true ? "product-card_heart-liked" : ""
+            } product-card_heart`}
+            onClick={handleLike}
+          >
+            {liked === true ? <FaHeart /> : <FaRegHeart />}
           </div>
-        </div>
+        ) : null}
+        {totalRatings ? (
+          <div className="product-card_stars-container">
+            <div className="product-card_stars">
+              <ReactStars
+                count={5}
+                isHalf={true}
+                value={starRating}
+                edit={false}
+                size={30}
+                activeColor="#ffd700"
+              />
+              <div className="product-card_stars-total">{totalRatings}</div>
+            </div>
+          </div>
+        ) : null}
       </div>
       <div className="product-card_bottom">
         <div className="product-card_title">{title}</div>

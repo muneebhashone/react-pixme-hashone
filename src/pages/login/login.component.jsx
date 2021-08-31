@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Container,
   Button,
@@ -38,16 +38,20 @@ const validationSchema = yup.object({
     .required("Email is required"),
   password: yup
     .string("Enter your password")
-    .min(8, "Password should be of minimum 8 characters length")
+    .min(5, "Password should be of minimum 8 characters length")
     .required("Password is required"),
 });
 
 function Login() {
-  const user = useSelector((state) => state.user);
-  const [incorrect, setIncorrect] = useState("");
+  const { currentUser } = useSelector((state) => state.user);
   const history = useHistory();
   const dispatch = useDispatch();
   const classes = useStyles();
+
+  if (currentUser || localStorage.getItem("currentUser")) {
+    history.push("/pixme/customer");
+  }
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -58,19 +62,6 @@ function Login() {
       dispatch(signInStart(values));
     },
   });
-
-  const handleSubmit = () => {
-    if (user.currentUser !== null) {
-      setIncorrect("");
-      history.push("/admin");
-    }
-
-    if (user.error !== "") {
-      setIncorrect("Either email or password is incorrect");
-    }
-  };
-
-  useEffect(handleSubmit, [user]);
 
   return (
     <Container>
@@ -101,7 +92,6 @@ function Login() {
                 }
                 helperText={formik.touched.password && formik.errors.password}
               />
-              {incorrect && <FormHelperText error>{incorrect}</FormHelperText>}
               <Button
                 classes={{ root: classes.btnRoot }}
                 color="primary"

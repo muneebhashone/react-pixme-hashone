@@ -70,27 +70,27 @@ function App() {
           <Recover />
           <Footer />
         </Route>
-        <Route path="/pixme/admin/subscription">
+        <Route path="/pixme/customer/subscription">
           <Header />
           <Subscription />
           <Footer />
         </Route>
-        <Route path="/pixme/admin/wishlist">
+        <Route path="/pixme/customer/wishlist">
           <Header />
           <Wishlist />
           <Footer />
         </Route>
-        <Route path="/pixme/admin/reviews">
+        <Route path="/pixme/customer/reviews">
           <Header />
           <Reviews />
           <Footer />
         </Route>
-        <Route path="/pixme/admin/signout">
+        <Route path="/pixme/customer/signout">
           <Header />
           <Signout />
           <Footer />
         </Route>
-        <Route path="/pixme/admin">
+        <Route path="/pixme/customer">
           <Header />
           <Profile />
           <Footer />
