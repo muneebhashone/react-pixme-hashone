@@ -90,7 +90,7 @@ function FlavoursOverview() {
                   productImg={flavour.wine_flavour_image}
                   totalRatings={4}
                   starRating={4}
-                  linkTo={`/flavours/${flavour.id}`}
+                  linkTo={`/pixme/flavours/${flavour.id}`}
                   like={false}
                 />
               );

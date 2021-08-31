@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AdminLayout from "../../../components/admin-layout/admin-kayout.component";
+import AdminLayout from "../../../components/admin-layout/admin-layout.component";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";

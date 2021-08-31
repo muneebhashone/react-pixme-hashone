@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 function HomeSearch() {
-  const { searchData, isFetching } = useSelector((state) => state);
-  const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("ingredients");
   const history = useHistory();

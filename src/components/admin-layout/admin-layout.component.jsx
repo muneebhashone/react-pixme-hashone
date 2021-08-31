@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Redirect, Route, withRouter } from "react-router-dom";
-import { Tabs, Tab, Typography, Container, Box, Grid } from "@material-ui/core";
+import { withRouter } from "react-router-dom";
+import { Tabs, Tab, Typography, Container, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineHeart, AiOutlineCrown } from "react-icons/ai";
@@ -50,15 +50,15 @@ const useStyles = makeStyles(() => {
 function AdminLayout({ children, heading, active, history, match }) {
   const [activeTab, setActiveTab] = useState(active);
 
-  const location = useLocation();
+  // const location = useLocation();
 
-  const tabsLocation = {
-    profile: 0,
-    wishlist: 1,
-    reviews: 2,
-    subscription: 3,
-    signout: 4,
-  };
+  // const tabsLocation = {
+  //   profile: 0,
+  //   wishlist: 1,
+  //   reviews: 2,
+  //   subscription: 3,
+  //   signout: 4,
+  // };
 
   const tabsIndex = {
     0: "profile",

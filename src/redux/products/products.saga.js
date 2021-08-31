@@ -112,6 +112,7 @@ function* fetchSearchStart({ payload }) {
       payload.query,
       payload.type
     );
+    console.log(data);
     yield put(fetchSearchSuccess(data.data));
   } catch (err) {
     console.log("Error", err.message);
