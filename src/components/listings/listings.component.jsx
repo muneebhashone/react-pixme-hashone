@@ -6,45 +6,41 @@ import { Grid } from "@material-ui/core";
 function Listings({ data, isFetching, type }) {
   const handleProductData = (data, type) => {
     if (type === "spirits") {
-      return data.map((result) => (
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          {handleProductCard(result, type)}
-        </Grid>
-      ));
+      return data.map((result) => handleProductCard(result, type));
     }
 
     if (type === "ingredients") {
-      return data.map((result) => (
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          {handleProductCard(result, type)}
-        </Grid>
-      ));
+      return data.map((result) => handleProductCard(result, type));
     }
   };
 
   const handleProductCard = (result, type) => {
     if (type === "spirits") {
       return (
-        <ProductCard
-          key={result.id}
-          title={result.wine_title}
-          productImg={result.wine_image}
-          linkTo={`/pixme/drinks/flavour/${result.id}`}
-        />
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <ProductCard
+            key={result.id}
+            title={result.wine_title}
+            productImg={result.wine_image}
+            linkTo={`/pixme/drinks/flavour/${result.id}`}
+          />
+        </Grid>
       );
     }
 
     if (type === "ingredients") {
       return (
-        <ProductCard
-          key={result.id}
-          title={result.wine_flavour_name}
-          productImg={result.wine_flavour_image}
-          totalRatings={4}
-          starRating={4}
-          linkTo={`/pixme/flavours/${result.id}`}
-          like={false}
-        />
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <ProductCard
+            key={result.id}
+            title={result.wine_flavour_name}
+            productImg={result.wine_flavour_image}
+            totalRatings={4}
+            starRating={4}
+            linkTo={`/pixme/flavours/${result.id}`}
+            like={false}
+          />
+        </Grid>
       );
     }
   };
