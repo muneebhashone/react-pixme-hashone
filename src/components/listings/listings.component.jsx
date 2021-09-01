@@ -6,11 +6,19 @@ import { Grid } from "@material-ui/core";
 function Listings({ data, isFetching, type }) {
   const handleProductData = (data, type) => {
     if (type === "spirits") {
-      return data.map((result) => handleProductCard(result, type));
+      return data.map((result) => (
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          {handleProductCard(result, type)}
+        </Grid>
+      ));
     }
 
     if (type === "ingredients") {
-      return data.map((result) => handleProductCard(result, type));
+      return data.map((result) => (
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          {handleProductCard(result, type)}
+        </Grid>
+      ));
     }
   };
 
@@ -21,10 +29,7 @@ function Listings({ data, isFetching, type }) {
           key={result.id}
           title={result.wine_title}
           productImg={result.wine_image}
-          totalRatings={4}
-          starRating={4}
           linkTo={`/pixme/drinks/flavour/${result.id}`}
-          like={false}
         />
       );
     }
@@ -52,9 +57,7 @@ function Listings({ data, isFetching, type }) {
         ) : data.length === 0 ? (
           <div>No search results found</div>
         ) : (
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            {handleProductData(data, type)}
-          </Grid>
+          handleProductData(data, type)
         )}
       </Grid>
     </div>
