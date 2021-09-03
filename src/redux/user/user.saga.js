@@ -1,6 +1,11 @@
 import axios from "axios";
 import { UserActionTypes } from "../user/user.types";
-import { signInSuccess, signInFailure } from "./user.action";
+import {
+  signInSuccess,
+  signInFailure,
+  signInStart as signUpSuccess,
+  signUpFailure,
+} from "./user.action";
 import { put, call, takeLatest, all } from "redux-saga/effects";
 
 // Requests
@@ -10,6 +15,17 @@ function loginRequest(email, password) {
     {
       email: email,
       password: password,
+    }
+  );
+}
+
+function signUpRequest(data) {
+  return axios.post(
+    "https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/signup",
+    {
+      email: data.email,
+      password: data.password,
+      name: data.name,
     }
   );
 }
@@ -51,6 +67,24 @@ function* signInStart({ payload: { email, password } }) {
   }
 }
 
+function* signUpStart({ payload }) {
+  try {
+    const { data } = yield call(signUpRequest, payload);
+    console.log(data);
+    if (data.success) {
+      yield delete payload.name;
+      yield put(signUpSuccess(payload));
+    }
+
+    if (!data.success) {
+      yield put(signUpFailure(data.message));
+    }
+  } catch (err) {
+    console.log(err.message);
+    yield put(signUpFailure(err.message));
+  }
+}
+
 function* clearUserLocal() {
   yield localStorage.removeItem("currentUser");
 }
@@ -59,6 +93,7 @@ function* clearUserLocal() {
 export function* userSaga() {
   yield all([
     takeLatest(UserActionTypes.SIGN_IN_START, signInStart),
+    takeLatest(UserActionTypes.SIGN_UP_START, signUpStart),
     takeLatest(UserActionTypes.CLEAR_CURRENT_USER, clearUserLocal),
   ]);
 }

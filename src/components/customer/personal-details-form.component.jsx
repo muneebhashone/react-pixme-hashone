@@ -64,11 +64,11 @@ function PersonalDetailsForm({ currentUser }) {
 
   const formik = useFormik({
     initialValues: {
-      firstName: currentUser.first_name,
-      lastName: currentUser.last_name,
-      email: currentUser.email,
-      phone: currentUser.phone,
-      address: currentUser.country,
+      firstName: currentUser.first_name || "",
+      lastName: currentUser.last_name || "",
+      email: currentUser.email || "",
+      phone: currentUser.phone || "",
+      address: currentUser.country || "",
     },
     onSubmit: (values) => {
       values["user_id"] = currentUser.id;

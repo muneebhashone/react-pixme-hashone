@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Button,
@@ -6,8 +6,9 @@ import {
   FormControlLabel,
   Checkbox,
   FormHelperText,
+  CircularProgress,
 } from "@material-ui/core";
-import axios from "axios";
+import Alert from "@material-ui/lab/Alert";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,7 +16,7 @@ import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
-import { setCurrentUser } from "../../redux/user/user.action";
+import { signUpStart } from "../../redux/user/user.action";
 import { useHistory } from "react-router";
 import "./signup.styles.css";
 
@@ -37,10 +38,6 @@ const useStyles = makeStyles((theme) => {
 
 const validationSchema = yup.object({
   name: yup.string("Enter your full name").required("Full Name is required"),
-  number: yup
-    .string()
-    .length(11, "Phone number is not valid")
-    .required("Phone Number is required"),
   email: yup
     .string("Enter your email")
     .email("Enter a valid email")
@@ -52,62 +49,42 @@ const validationSchema = yup.object({
   terms: yup.boolean().isTrue("Terms and Conditions must be checked"),
 });
 
-function Signup(props) {
-  const { currentUser } = useSelector((state) => state.user);
+function Signup() {
+  const { currentUser, isFetching, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
 
-  if (localStorage.getItem("currentUser")) {
-    history.push("/pixme/customer");
-  }
+  // if (localStorage.getItem("currentUser")) {
+  //   history.push("/pixme/customer");
+  // }
+
+  useEffect(() => {
+    if (localStorage.getItem("currentUser")) {
+      history.push("/pixme/customer");
+    }
+  }, [currentUser]);
 
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
-      number: "",
       password: "",
       terms: false,
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      axios
-        .post("http://localhost:8000/users", {
-          name: values.name,
-          email: values.email,
-          number: values.number,
-          password: values.password,
-        })
-        .then(function (response) {
-          const { status } = response;
-          if (status === 201) {
-            const { data } = response;
-            dispatch(
-              setCurrentUser({
-                email: data.email,
-                name: data.name,
-                number: data.number,
-              })
-            );
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      delete values["terms"];
+      dispatch(signUpStart(values));
     },
-  });
-
-  useEffect(() => {
-    if (currentUser !== null) {
-      console.log("You are successfully logged in");
-    }
   });
 
   return (
     <Container>
       <div className="login-signup">
         <div className="container">
+          {isFetching ? <CircularProgress /> : null}
+          {error ? <Alert severity="error">{error}</Alert> : null}
           <h1 className="page-heading">Signup</h1>
           <Container maxWidth="sm">
             <form className="login-signup_form" onSubmit={formik.handleSubmit}>
@@ -120,16 +97,6 @@ function Signup(props) {
                 onChange={formik.handleChange}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.touched.name && formik.errors.name}
-              />
-              <TextField
-                variant="outlined"
-                type="number"
-                name="number"
-                label="Phone Number"
-                value={formik.values.number}
-                onChange={formik.handleChange}
-                error={formik.touched.number && Boolean(formik.errors.number)}
-                helperText={formik.touched.number && formik.errors.number}
               />
               <TextField
                 variant="outlined"

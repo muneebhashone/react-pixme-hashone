@@ -23,3 +23,18 @@ export const signInFailure = (error) => ({
 export const clearCurrentUser = () => ({
   type: UserActionTypes.CLEAR_CURRENT_USER,
 });
+
+export const signUpStart = (data) => ({
+  type: UserActionTypes.SIGN_UP_START,
+  payload: data,
+});
+
+export const signUpFailure = (errorMessage) => ({
+  type: UserActionTypes.SIGN_UP_FAILURE,
+  payload: errorMessage,
+});
+
+export const signUpSuccess = (data) => ({
+  type: UserActionTypes.SIGN_UP_SUCCESS,
+  payload: data,
+});
