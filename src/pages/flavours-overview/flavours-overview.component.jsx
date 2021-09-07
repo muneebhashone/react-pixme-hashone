@@ -15,7 +15,7 @@ import "./flavours-overview.styles.css";
 function FlavoursOverview() {
   const { singleDrink, isFetching } = useSelector((state) => state.drinks);
   const dispatch = useDispatch();
-  const location = useLocation();
+  // const location = useLocation();
   const params = useParams();
   const drinkId = params.drinkId;
   console.log(params);
@@ -85,9 +85,8 @@ function FlavoursOverview() {
             ) : (
               singleDrink.wine_flavours.map((flavour) => {
                 return (
-                  <Grid item xs={12} sm={6} md={4} lg={3}>
+                  <Grid key={flavour.id} item xs={12} sm={6} md={4} lg={3}>
                     <ProductCard
-                      key={flavour.id}
                       title={flavour.wine_flavour_name}
                       productImg={flavour.wine_flavour_image}
                       totalRatings={4}

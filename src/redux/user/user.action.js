@@ -38,3 +38,18 @@ export const signUpSuccess = (data) => ({
   type: UserActionTypes.SIGN_UP_SUCCESS,
   payload: data,
 });
+
+export const userMutationStart = (data) => ({
+  type: UserActionTypes.USER_MUTATION_START,
+  payload: data,
+});
+
+export const userMutationFailure = (error) => ({
+  type: UserActionTypes.USER_MUTATION_FAILURE,
+  payload: error,
+});
+
+export const userMutationSuccess = (currentUser) => ({
+  type: UserActionTypes.USER_MUTATION_FAILURE,
+  payload: currentUser,
+});

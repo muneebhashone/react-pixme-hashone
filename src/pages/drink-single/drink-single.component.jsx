@@ -38,8 +38,8 @@ function ProductSingle() {
             title={singleFlavour.wine_flavour_name}
             paragraph={singleFlavour.wine_flavour_description}
             image={singleFlavour.wine_flavour_image}
-            starRating={4}
-            totalRatings={40}
+            starRating={singleFlavour.rating}
+            totalRatings={singleFlavour.flavour_wine_reviews.length}
           />
         </div>
         <div className="product-single_bottom">
