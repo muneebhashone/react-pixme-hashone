@@ -7,6 +7,7 @@ import { fetchFlavoursStart } from "../../redux/products/products.action";
 import { Container, Grid } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component";
+import ProductFilters from "../../components/product-filters/ProductFilters";
 import "./all-flavours.styles.css";
 
 function DrinksOverview() {
@@ -40,40 +41,7 @@ function DrinksOverview() {
           paragraph="Lorem Ipsum is simply a sample text used in the printing and stacking industry. It has been the industry's main test text since the 1500s, when an unknown printer took a lot of random text to make a print sample."
           image={productImg}
         /> */}
-        <div className="product-filters">
-          <h3>Filter</h3>
-          <div className="product-filters_grid">
-            <CustomSelect name="category_filter" id="category_filter">
-              <option value="0" disabled selected>
-                Category
-              </option>
-              <option value="option-1">Option 1</option>
-              <option value="option-2">Option 1</option>
-            </CustomSelect>
-
-            <CustomSelect name="color_filter" id="color_filter">
-              <option value="0" disabled selected>
-                Color
-              </option>
-              <option value="option-1">Option 1</option>
-              <option value="option-2">Option 1</option>
-            </CustomSelect>
-            <CustomSelect name="price_filter" id="price_filter">
-              <option value="0" disabled selected>
-                Price
-              </option>
-              <option value="option-1">Option 1</option>
-              <option value="option-2">Option 1</option>
-            </CustomSelect>
-            <CustomSelect name="brand_filter" id="brand_filter">
-              <option value="0" disabled selected>
-                Brand
-              </option>
-              <option value="option-1">Option 1</option>
-              <option value="option-2">Option 1</option>
-            </CustomSelect>
-          </div>
-        </div>
+        <ProductFilters />
         <div className="products_listing">
           <Grid container spacing={6}>
             {flavours === null || isFetching === true ? (

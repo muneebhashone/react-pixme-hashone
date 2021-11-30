@@ -34,7 +34,7 @@ function Header({ variation }) {
           <Link to="/pixme" className="header_brand">
             <img src={logo} alt="" />
           </Link>
-          <SearchInput />
+          {/* <SearchInput /> */}
           <div className="header_nav-items">
             <Link to="/pixme/drinks">Spirits</Link>
             <Link to="/pixme/flavours">Ingredients</Link>

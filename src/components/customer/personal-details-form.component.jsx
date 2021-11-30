@@ -54,10 +54,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const baseImageUrl =
+  "https://dev.1stopwebsitesolution.com/demo/shake_server/storage";
+
 function PersonalDetailsForm({ currentUser }) {
   const [image, setImage] = useState("");
   const [imageUploading, setImageUploading] = useState(false);
-  const [avatar, setAvatar] = useState(DisplayPicture);
+  const [avatar, setAvatar] = useState(`${baseImageUrl}/${currentUser.thumb}`);
 
   const getBase64 = (file) => {
     if (!file) return;

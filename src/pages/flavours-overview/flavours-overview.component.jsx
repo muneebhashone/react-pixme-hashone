@@ -10,6 +10,7 @@ import {
 } from "../../redux/products/products.action";
 import { Container, Grid } from "@material-ui/core";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component";
+import ProductFilters from "../../components/product-filters/ProductFilters";
 import "./flavours-overview.styles.css";
 
 function FlavoursOverview() {
@@ -42,40 +43,7 @@ function FlavoursOverview() {
             image={singleDrink.wine_brand.brand_image}
           />
         )}
-        <div className="product-filters">
-          <h3>Filter</h3>
-          <div className="product-filters_grid">
-            <CustomSelect name="category_filter" id="category_filter">
-              <option value="0" disabled selected>
-                Category
-              </option>
-              <option value="option-1">Option 1</option>
-              <option value="option-2">Option 1</option>
-            </CustomSelect>
-
-            <CustomSelect name="color_filter" id="color_filter">
-              <option value="0" disabled selected>
-                Color
-              </option>
-              <option value="option-1">Option 1</option>
-              <option value="option-2">Option 1</option>
-            </CustomSelect>
-            <CustomSelect name="price_filter" id="price_filter">
-              <option value="0" disabled selected>
-                Price
-              </option>
-              <option value="option-1">Option 1</option>
-              <option value="option-2">Option 1</option>
-            </CustomSelect>
-            <CustomSelect name="brand_filter" id="brand_filter">
-              <option value="0" disabled selected>
-                Brand
-              </option>
-              <option value="option-1">Option 1</option>
-              <option value="option-2">Option 1</option>
-            </CustomSelect>
-          </div>
-        </div>
+        <ProductFilters />
         <div className="products_listing">
           <Grid container spacing={6}>
             {singleDrink === null || isFetching === true ? (
