@@ -41,7 +41,7 @@ function DrinksOverview() {
           paragraph="Lorem Ipsum is simply a sample text used in the printing and stacking industry. It has been the industry's main test text since the 1500s, when an unknown printer took a lot of random text to make a print sample."
           image={productImg}
         /> */}
-        <ProductFilters />
+        {/* <ProductFilters /> */}
         <div className="products_listing">
           <Grid container spacing={6}>
             {flavours === null || isFetching === true ? (

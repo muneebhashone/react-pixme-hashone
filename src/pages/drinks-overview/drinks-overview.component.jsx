@@ -34,7 +34,7 @@ function DrinksOverview() {
   return (
     <Container>
       <div className="products">
-        <ProductFilters />
+        {/* <ProductFilters /> */}
         <div className="products_listing">
           <Grid container spacing={6}>
             {drinks === null || isFetching === true ? (

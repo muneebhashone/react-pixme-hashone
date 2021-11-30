@@ -44,7 +44,7 @@ function FlavoursOverview() {
             image={singleDrink.wine_brand.brand_image}
           />
         )}
-        <ProductFilters />
+        {/* <ProductFilters /> */}
         <div className="products_listing">
           <Grid container spacing={6}>
             {singleDrink === null || isFetching === true ? (
