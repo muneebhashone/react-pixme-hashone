@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { URL } from "../../config";
 
 function HomeSearch() {
   const [search, setSearch] = useState("");
