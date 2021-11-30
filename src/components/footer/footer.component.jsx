@@ -18,7 +18,7 @@ function Footer({ variation }) {
             </li>
           </ul>
           <div className="footer_copyright">
-            Copyright &copy; 2021- Pix Me A Brink. All Copyrights Reserved.
+            Copyright &copy; 2021- Pix Me A Drink. All Copyrights Reserved.
           </div>
         </div>
       </Container>

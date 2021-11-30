@@ -7,6 +7,7 @@ import { BiLabel } from "react-icons/bi";
 import { BsBoxArrowRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { URL } from "../../config";
 
 const adminRightWidth = 240;
 
@@ -64,12 +65,12 @@ function AdminLayout({ children, heading, active }) {
   const classes = useStyles();
 
   const handleChange = (event, newValue) => {
-    history.push(`/pixme/customer/${tabsIndex[newValue]}`);
+    history.push(`${URL}/customer/${tabsIndex[newValue]}`);
     setActiveTab(newValue);
   };
 
   if (!localStorage.getItem("currentUser")) {
-    history.push("/pixme/login");
+    history.push(`${URL}/login`);
   }
 
   useEffect(() => {
@@ -78,7 +79,7 @@ function AdminLayout({ children, heading, active }) {
 
   useEffect(() => {
     if (!localStorage.getItem("currentUser")) {
-      history.push("/pixme/login");
+      history.push(`${URL}/login`);
     }
   }, [currentUser]);
 

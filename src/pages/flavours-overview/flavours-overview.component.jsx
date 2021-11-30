@@ -12,6 +12,7 @@ import { Container, Grid } from "@material-ui/core";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component";
 import ProductFilters from "../../components/product-filters/ProductFilters";
 import "./flavours-overview.styles.css";
+import { URL } from "../../config";
 
 function FlavoursOverview() {
   const { singleDrink, isFetching } = useSelector((state) => state.drinks);
@@ -59,7 +60,7 @@ function FlavoursOverview() {
                       productImg={flavour.wine_flavour_image}
                       totalRatings={4}
                       starRating={4}
-                      linkTo={`/pixme/flavours/${flavour.id}`}
+                      linkTo={`${URL}/flavours/${flavour.id}`}
                       like={false}
                     />
                   </Grid>

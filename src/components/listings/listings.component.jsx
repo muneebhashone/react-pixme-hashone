@@ -2,6 +2,7 @@ import React from "react";
 import LoadingSpinner from "../loading-spinner/loading-spinner.component";
 import ProductCard from "../product-card/product-card.component";
 import { Grid } from "@material-ui/core";
+import { URL } from "../../config";
 
 function Listings({ data, isFetching, type }) {
   const handleProductData = (data, type) => {
@@ -22,7 +23,7 @@ function Listings({ data, isFetching, type }) {
             key={result.id}
             title={result.wine_title}
             productImg={result.wine_image}
-            linkTo={`/pixme/drinks/flavour/${result.id}`}
+            linkTo={`${URL}/drinks/flavour/${result.id}`}
           />
         </Grid>
       );
@@ -37,7 +38,7 @@ function Listings({ data, isFetching, type }) {
             productImg={result.wine_flavour_image}
             totalRatings={4}
             starRating={4}
-            linkTo={`/pixme/flavours/${result.id}`}
+            linkTo={`${URL}/flavours/${result.id}`}
             like={false}
           />
         </Grid>

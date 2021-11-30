@@ -18,6 +18,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
 import { signUpStart } from "../../redux/user/user.action";
 import { useHistory } from "react-router";
+import { URL } from "../../config";
 import "./signup.styles.css";
 
 const useStyles = makeStyles((theme) => {
@@ -55,13 +56,9 @@ function Signup() {
   const classes = useStyles();
   const history = useHistory();
 
-  // if (localStorage.getItem("currentUser")) {
-  //   history.push("/pixme/customer");
-  // }
-
   useEffect(() => {
     if (localStorage.getItem("currentUser")) {
-      history.push("/pixme/customer");
+      history.push(`${URL}/customer`);
     }
   }, [currentUser]);
 
@@ -173,7 +170,7 @@ function Signup() {
               </Button>
             </form>
           </Container>
-          <Link to="/pixme/login" className="already-member">
+          <Link to={`${URL}/login`} className="already-member">
             Already have account? Login
           </Link>
         </div>

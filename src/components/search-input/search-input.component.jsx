@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
+import { URL } from "../../config";
 
 function SearchInput() {
   const [search, setSearch] = useState("");
@@ -8,7 +9,7 @@ function SearchInput() {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    history.push(`/pixme/search?q=${search}`);
+    history.push(`${URL}/search?q=${search}`);
   };
 
   return (

@@ -15,6 +15,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
 import { signInStart } from "../../redux/user/user.action";
 import Alert from "@material-ui/lab/Alert";
+import { URL } from "../../config";
 import "./login.styles.css";
 
 const useStyles = makeStyles((theme) => {
@@ -50,10 +51,6 @@ function Login() {
   const dispatch = useDispatch();
   const classes = useStyles();
 
-  // if (localStorage.getItem("currentUser")) {
-  //   history.push("/pixme/customer");
-  // }
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -67,7 +64,7 @@ function Login() {
 
   useEffect(() => {
     if (localStorage.getItem("currentUser")) {
-      history.push("/pixme/customer");
+      history.push(`${URL}/customer`);
     }
   }, [currentUser]);
 
@@ -139,7 +136,7 @@ function Login() {
               </Button>
             </form>
           </Container>
-          <Link to="/pixme/signup" className="already-member">
+          <Link to={`${URL}/signup`} className="already-member">
             Don't have a account? Sign Up
           </Link>
         </div>

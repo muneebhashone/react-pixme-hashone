@@ -15,82 +15,78 @@ import Wishlist from "./pages/admin/wishlist/wishlist.component";
 import Reviews from "./pages/admin/reviews/reviews.component";
 import Signout from "./pages/admin/signout/signout.component";
 import Search from "./pages/search/search.component";
+import { URL } from "./config";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/pixme/">
+        <Route exact path={URL || "/"}>
           <Header variation="home" />
           <Home />
           <Footer variation="home" />
         </Route>
-        <Route path="/pixme/flavours/:flavourId">
+        <Route path={`${URL}/flavours/:flavourId`}>
           <Header />
           <DrinkSingle />
           <Footer />
         </Route>
-        <Route path="/pixme/drinks/flavour/:drinkId">
+        <Route path={`${URL}/drinks/flavour/:drinkId`}>
           <Header />
           <FlavoursOverview />
           <Footer />
         </Route>
-        <Route path="/pixme/flavours/:flavourId">
-          <Header />
-          <DrinkSingle />
-          <Footer />
-        </Route>
-        <Route path="/pixme/flavours">
+        <Route path={`${URL}/flavours`}>
           <Header />
           <AllFlavours />
           <Footer />
         </Route>
-        <Route path="/pixme/drinks">
+        <Route path={`${URL}/drinks`}>
           <Header />
           <DrinksOverview />
           <Footer />
         </Route>
-        <Route path="/pixme/search">
+        <Route path={`${URL}/search`}>
           <Header />
           <Search />
           <Footer />
         </Route>
-        <Route path="/pixme/signup">
+        <Route path={`${URL}/signup`}>
           <Header />
           <Signup />
           <Footer />
         </Route>
-        <Route path="/pixme/login">
+        <Route path={`${URL}/login`}>
           <Header />
           <Login />
           <Footer />
         </Route>
-        <Route path="/pixme/recover">
+        <Route path={`${URL}/recover`}>
           <Header />
           <Recover />
           <Footer />
         </Route>
-        <Route path="/pixme/customer/subscription">
+        <Route path={`${URL}/customer/subscription`}>
           <Header />
           <Subscription />
           <Footer />
         </Route>
-        <Route path="/pixme/customer/wishlist">
+        <Route path={`${URL}/customer/wishlist`}>
           <Header />
           <Wishlist />
           <Footer />
         </Route>
-        <Route path="/pixme/customer/reviews">
+        <Route path={`${URL}/customer/reviews`}>
           <Header />
           <Reviews />
           <Footer />
         </Route>
-        <Route path="/pixme/customer/signout">
+        <Route path={`${URL}/customer/signout`}>
           <Header />
           <Signout />
           <Footer />
         </Route>
-        <Route path="/pixme/customer">
+        <Route path={`${URL}/customer`}>
           <Header />
           <Profile />
           <Footer />

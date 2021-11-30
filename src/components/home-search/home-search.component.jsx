@@ -10,7 +10,7 @@ function HomeSearch() {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     console.log(search, filter);
-    history.push(`/pixme/search?q=${search}&type=${filter}`);
+    history.push(`${URL}/search?q=${search}&type=${filter}`);
   };
 
   return (

@@ -8,6 +8,7 @@ import { Container, Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCurrentUser } from "../../redux/user/user.action";
 import SearchInput from "../search-input/search-input.component";
+import { URL } from "../../config";
 import "./header.styles.css";
 
 function Header({ variation }) {
@@ -31,13 +32,13 @@ function Header({ variation }) {
     <div className={`${variation === "home" ? "header-home" : ""} header`}>
       <Container>
         <div className="container">
-          <Link to="/pixme" className="header_brand">
+          <Link to={URL} className="header_brand">
             <img src={logo} alt="" />
           </Link>
           {/* <SearchInput /> */}
           <div className="header_nav-items">
-            <Link to="/pixme/drinks">Spirits</Link>
-            <Link to="/pixme/flavours">Ingredients</Link>
+            <Link to={`${URL}/drinks`}>Spirits</Link>
+            <Link to={`${URL}/flavours`}>Ingredients</Link>
           </div>
           <div className="header_right">
             <div className="header_nav-items">
@@ -61,8 +62,8 @@ function Header({ variation }) {
                 </>
               ) : (
                 <>
-                  <Link to="/pixme/signup">Sign Up</Link>
-                  <Link to="/pixme/login">Login</Link>
+                  <Link to={`${URL}/signup`}>Sign Up</Link>
+                  <Link to={`${URL}/login`}>Login</Link>
                 </>
               )}
             </div>
