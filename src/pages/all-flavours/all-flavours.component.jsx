@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Helmet} from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 import CustomSelect from "../../components/custom-select/custom-select.component";
@@ -35,6 +36,12 @@ function DrinksOverview() {
 
   return (
     <Container>
+      <Helmet>
+      <meta charSet="utf-8" />
+      <title>Tasty Ingredients to Reinvent Your Drink | Pix Me A Drink </title>
+      <meta name="description" content="Recreate your next drink in style using one of Pix Me A Drink’s recipes. Whether a Gentleman Ginger or A Hole in One, the choices are endless!"/>
+      <link rel="canonical" href="https://pixmeadrink.com/flavours" />
+      </Helmet>
       <div className="products">
         {/* <Display
           title="Smirnoff - Vodka"

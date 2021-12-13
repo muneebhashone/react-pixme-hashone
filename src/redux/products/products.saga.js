@@ -15,38 +15,38 @@ import { put, call, all, takeLatest } from "redux-saga/effects";
 // Request Handlers
 function fetchDrinksRequest(pageNumber, startingPoint) {
   return axios.get(
-    `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getAllWinesWeb?page=${pageNumber}&starting_point=${startingPoint}`
+    `https://api.pixmeadrink.com/public/api/getAllWinesWeb?page=${pageNumber}&starting_point=${startingPoint}`
   );
 }
 
 function fetchSingleDrinkRequest(productId) {
   return axios.get(
-    `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getSingleWineById/${productId}`
+    `https://api.pixmeadrink.com/public/api/getSingleWineById/${productId}`
   );
 }
 
 function fetchSingleFlavourRequest(wineId) {
   return axios.get(
-    `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getSingleWineFlavourById/${wineId}`
+    `https://api.pixmeadrink.com/public/api/getSingleWineFlavourById/${wineId}`
   );
 }
 
 function fetchFlavoursRequest(pageNumber, startingPoint) {
   return axios.get(
-    `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getAllWinesFlavoursWeb?page=${pageNumber}&starting_point=${startingPoint}`
+    `https://api.pixmeadrink.com/public/api/getAllWinesFlavoursWeb?page=${pageNumber}&starting_point=${startingPoint}`
   );
 }
 
 function fetchSearchRequest(query, type) {
   if (type === "spirits") {
     return axios.get(
-      `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getAllWinesWeb?page=1&starting_point=0&search=${query}`
+      `https://api.pixmeadrink.com/public/api/getAllWinesWeb?page=1&starting_point=0&search=${query}`
     );
   }
 
   if (type === "ingredients") {
     return axios.get(
-      `https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/getAllWinesFlavoursWeb?page=1&starting_point=0&search=${query}`
+      `https://api.pixmeadrink.com/public/api/getAllWinesFlavoursWeb?page=1&starting_point=0&search=${query}`
     );
   }
 }

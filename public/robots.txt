@@ -1,3 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /signup
+Disallow: /login
+Disallow: /admin
+
+Sitemap: https://pixmeadrink.com/sitemap.xml

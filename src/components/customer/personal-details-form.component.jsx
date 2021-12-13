@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const baseImageUrl =
-  "https://dev.1stopwebsitesolution.com/demo/shake_server/storage";
+  "https://api.pixmeadrink.com/storage";
 
 function PersonalDetailsForm({ currentUser }) {
   const [image, setImage] = useState("");

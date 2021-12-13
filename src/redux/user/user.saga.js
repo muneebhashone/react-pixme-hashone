@@ -11,7 +11,7 @@ import { put, call, takeLatest, all } from "redux-saga/effects";
 // Requests
 function loginRequest(email, password) {
   return axios.post(
-    "https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/login",
+    "https://api.pixmeadrink.com/public/api/login",
     {
       email: email,
       password: password,
@@ -21,7 +21,7 @@ function loginRequest(email, password) {
 
 function signUpRequest(data) {
   return axios.post(
-    "https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/signup",
+    "https://api.pixmeadrink.com/public/api/signup",
     {
       email: data.email,
       password: data.password,
@@ -32,7 +32,7 @@ function signUpRequest(data) {
 
 function userEditRequest(data) {
   return axios.post(
-    "https://dev.1stopwebsitesolution.com/demo/shake_server/public/api/login",
+    "https://api.pixmeadrink.com/public/api/login",
     {
       image: data.image,
       user_id: data.userId,
