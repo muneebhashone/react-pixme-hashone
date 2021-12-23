@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import Display from "../../components/display/display.component";
 import IconBox from "../../components/icon-box/icon-box.component";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component";
@@ -34,7 +34,6 @@ function ProductSingle() {
   return (
     <Container>
       <div className="product-single">
-        
         <div className="product-single_top">
           <Display
             title={singleFlavour.wine_flavour_name}

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import CustomSelect from "../../components/custom-select/custom-select.component";
@@ -35,13 +35,19 @@ function DrinksOverview() {
   return (
     <Container>
       <div className="application">
-      <Helmet>
-      <meta charSet="utf-8" />
-        <title>Re-Spirit Your Life with Flavorful Drinks | Pix Me A Drink</title>
-        <meta data-react-helmet="true" name="description" content="Enter the world of luxurious beverages. From Johnnie Walker to Jimmy Dean, Franks way, and many others, prepare to immerse yourself and forget about the world."/>
-        <link rel="canonical" href="https://pixmeadrink.com/drinks" />
-      </Helmet>
-       </div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>
+            Re-Spirit Your Life with Flavorful Drinks | Pix Me A Drink
+          </title>
+          <meta
+            data-react-helmet="true"
+            name="description"
+            content="Enter the world of luxurious beverages. From Johnnie Walker to Jimmy Dean, Franks way, and many others, prepare to immerse yourself and forget about the world."
+          />
+          <link rel="canonical" href="https://pixmeadrink.com/drinks" />
+        </Helmet>
+      </div>
       <div className="products">
         {/* <ProductFilters /> */}
         <div className="products_listing">
@@ -56,7 +62,7 @@ function DrinksOverview() {
                       key={wine.id}
                       title={wine.wine_title}
                       productImg={wine.wine_image}
-                      linkTo={`${location.pathname}/flavour/${wine.id}`}
+                      linkTo={`${location.pathname}/flavour/${wine.slug}`}
                     />
                   </Grid>
                 );

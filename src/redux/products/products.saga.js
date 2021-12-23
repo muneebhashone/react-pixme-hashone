@@ -21,13 +21,13 @@ function fetchDrinksRequest(pageNumber, startingPoint) {
 
 function fetchSingleDrinkRequest(productId) {
   return axios.get(
-    `https://api.pixmeadrink.com/public/api/getSingleWineById/${productId}`
+    `https://api.pixmeadrink.com/public/api/getSingleWineBySlug/${productId}`
   );
 }
 
 function fetchSingleFlavourRequest(wineId) {
   return axios.get(
-    `https://api.pixmeadrink.com/public/api/getSingleWineFlavourById/${wineId}`
+    `https://api.pixmeadrink.com/public/api/getSingleWineFlavourBySlug/${wineId}`
   );
 }
 
