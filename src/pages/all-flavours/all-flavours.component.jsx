@@ -38,12 +38,14 @@ function DrinksOverview() {
     <Container>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>
-          Tasty Ingredients to Reinvent Your Drink | Pix Me A Drink{" "}
-        </title>
+        <title>Tasty Ingredients to Reinvent Your Drink | Pix Me A Drink</title>
+        <meta
+          name="title"
+          content="Flavor Alcohol Drinks | Alcohol Drinks Mix | Pix Me A Drink "
+        />
         <meta
           name="description"
-          content="Recreate your next drink in style using one of Pix Me A Drink’s recipes. Whether a Gentleman Ginger or A Hole in One, the choices are endless!"
+          content="Recreate ingredients mixed drinks using a Pix Me A Drink’s recipe. Whether a Gentleman Ginger or A Hole in One, try unlimited cocktail ingredients in one place!"
         />
         <link rel="canonical" href="https://pixmeadrink.com/flavours" />
       </Helmet>

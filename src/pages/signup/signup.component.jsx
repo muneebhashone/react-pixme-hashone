@@ -19,6 +19,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { signUpStart } from "../../redux/user/user.action";
 import { useHistory } from "react-router";
 import { URL } from "../../config";
+import { Helmet } from "react-helmet";
 import "./signup.styles.css";
 
 const useStyles = makeStyles((theme) => {
@@ -78,6 +79,11 @@ function Signup() {
 
   return (
     <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{`Signup | Pix Me A Drink`}</title>
+        <link rel="canonical" href={`https://pixmeadrink.com/signup`} />
+      </Helmet>
       <div className="login-signup">
         <div className="container">
           {isFetching ? <CircularProgress /> : null}

@@ -1,5 +1,5 @@
 import React from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import homeBg from "../../assets/home-bg.png";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 import HomeSearch from "../../components/home-search/home-search.component";
@@ -15,14 +15,20 @@ function Home() {
         backgroundImage: `url(${homeBg})`,
       }}
     >
-       <div className="application">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Your Favorite Drink Has a Story to Tell | Pix Me A Drink</title>
-        <meta name="description" content="Know your drink! Read about your favorite drink’s ingredients, history, and more, or view recipes to try new flavors in one place – Pix Me A Drink App."/>
+        <meta
+          name="title"
+          content="Cocktails and Spirits | Spirits Recipes | Pix Me A Drink"
+        />
+        <meta
+          name="description"
+          content="Read about sweet alcoholic drinks, their history, and more, or view recipes to try new flavors in the best cocktails pixmeadrink store – Pix Me A Drink App."
+        />
         <link rel="canonical" href="https://pixmeadrink.com/" />
       </Helmet>
-       </div>
+
       <h1 className="home_main-heading">Searching For The Perfect Drink?</h1>
       <HomeSearch />
       {/* <form className="home_search">

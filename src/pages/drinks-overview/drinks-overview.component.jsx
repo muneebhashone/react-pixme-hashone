@@ -34,20 +34,23 @@ function DrinksOverview() {
 
   return (
     <Container>
-      <div className="application">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>
-            Re-Spirit Your Life with Flavorful Drinks | Pix Me A Drink
-          </title>
-          <meta
-            data-react-helmet="true"
-            name="description"
-            content="Enter the world of luxurious beverages. From Johnnie Walker to Jimmy Dean, Franks way, and many others, prepare to immerse yourself and forget about the world."
-          />
-          <link rel="canonical" href="https://pixmeadrink.com/drinks" />
-        </Helmet>
-      </div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          Re-Spirit Your Life with Flavorful Drinks | Pix Me A Drink
+        </title>
+        <meta
+          data-react-helmet="true"
+          name="description"
+          content="Enter the dark spirits alcohol world! From Johnnie Walker to Jimmy Dean, and other dark alcohol brands, prepare to immerse yourself and forget everything else."
+        />
+        <meta
+          data-react-helmet="true"
+          name="title"
+          content="Spirits Drink | Alcoholic Drinks Brands | Pix Me A Drink"
+        />
+        <link rel="canonical" href="https://pixmeadrink.com/drinks" />
+      </Helmet>
       <div className="products">
         {/* <ProductFilters /> */}
         <div className="products_listing">

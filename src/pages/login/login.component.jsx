@@ -16,6 +16,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { signInStart } from "../../redux/user/user.action";
 import Alert from "@material-ui/lab/Alert";
 import { URL } from "../../config";
+import { Helmet } from "react-helmet";
 import "./login.styles.css";
 
 const useStyles = makeStyles((theme) => {
@@ -70,6 +71,11 @@ function Login() {
 
   return (
     <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{`Login | Pix Me A Drink`}</title>
+        <link rel="canonical" href={`https://pixmeadrink.com/login`} />
+      </Helmet>
       <div className="login-signup">
         <div className="container">
           {isFetching ? <CircularProgress /> : null}

@@ -12,6 +12,7 @@ import { Container, Grid } from "@material-ui/core";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component";
 import ProductFilters from "../../components/product-filters/ProductFilters";
 import "./flavours-overview.styles.css";
+import { Helmet } from "react-helmet";
 import { URL } from "../../config";
 
 function FlavoursOverview() {
@@ -34,6 +35,24 @@ function FlavoursOverview() {
 
   return (
     <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{`${singleDrink?.wine_brand?.brand_title} | Pix Me A Drink`}</title>
+        <meta
+          data-react-helmet="true"
+          name="description"
+          content={singleDrink?.meta_description}
+        />
+        <meta
+          data-react-helmet="true"
+          name="title"
+          content={singleDrink?.meta_title}
+        />
+        <link
+          rel="canonical"
+          href={`https://pixmeadrink.com/drinks/flavour/${singleDrink?.slug}`}
+        />
+      </Helmet>
       <div className="products">
         {singleDrink === null || isFetching === true ? (
           <LoadingSpinner />

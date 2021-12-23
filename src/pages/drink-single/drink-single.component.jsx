@@ -19,6 +19,8 @@ function ProductSingle() {
   const params = useParams();
   const productId = params.flavourId;
 
+  console.log(singleFlavour);
+
   useEffect(() => {
     dispatch(fetchSingleFlavourStart(productId));
 
@@ -33,6 +35,24 @@ function ProductSingle() {
 
   return (
     <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{`${singleFlavour.wine_flavour_name} | Pix Me A Drink`}</title>
+        <meta
+          data-react-helmet="true"
+          name="description"
+          content={singleFlavour.meta_description}
+        />
+        <meta
+          data-react-helmet="true"
+          name="title"
+          content={singleFlavour.meta_title}
+        />
+        <link
+          rel="canonical"
+          href={`https://pixmeadrink.com/flavours/${singleFlavour.slug}`}
+        />
+      </Helmet>
       <div className="product-single">
         <div className="product-single_top">
           <Display
