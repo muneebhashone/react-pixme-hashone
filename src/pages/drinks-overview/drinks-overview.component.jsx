@@ -41,13 +41,13 @@ function DrinksOverview() {
         </title>
         <meta
           data-react-helmet="true"
-          name="description"
-          content="Enter the dark spirits alcohol world! From Johnnie Walker to Jimmy Dean, and other dark alcohol brands, prepare to immerse yourself and forget everything else."
+          name="title"
+          content="Spirits Drink | Alcoholic Drinks Brands | Pix Me A Drink"
         />
         <meta
           data-react-helmet="true"
-          name="title"
-          content="Spirits Drink | Alcoholic Drinks Brands | Pix Me A Drink"
+          name="description"
+          content="Enter the dark spirits alcohol world! From Johnnie Walker to Jimmy Dean, and other dark alcohol brands, prepare to immerse yourself and forget everything else."
         />
         <link rel="canonical" href="https://pixmeadrink.com/drinks" />
       </Helmet>
@@ -65,7 +65,7 @@ function DrinksOverview() {
                       key={wine.id}
                       title={wine.wine_title}
                       productImg={wine.wine_image}
-                      linkTo={`${location.pathname}/flavour/${wine.slug}`}
+                      linkTo={`${location.pathname}/${wine.slug}`}
                     />
                   </Grid>
                 );

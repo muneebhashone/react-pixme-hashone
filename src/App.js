@@ -31,7 +31,7 @@ function App() {
           <DrinkSingle />
           <Footer />
         </Route>
-        <Route path={`${URL}/drinks/flavour/:drinkId`}>
+        <Route path={`${URL}/drinks/:drinkId`}>
           <Header />
           <FlavoursOverview />
           <Footer />

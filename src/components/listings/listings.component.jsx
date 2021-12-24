@@ -23,7 +23,7 @@ function Listings({ data, isFetching, type }) {
             key={result.id}
             title={result.wine_title}
             productImg={result.wine_image}
-            linkTo={`${URL}/drinks/flavour/${result.id}`}
+            linkTo={`${URL}/drinks/${result.slug}`}
           />
         </Grid>
       );
@@ -38,7 +38,7 @@ function Listings({ data, isFetching, type }) {
             productImg={result.wine_flavour_image}
             totalRatings={4}
             starRating={4}
-            linkTo={`${URL}/flavours/${result.id}`}
+            linkTo={`${URL}/flavours/${result.slug}`}
             like={false}
           />
         </Grid>
