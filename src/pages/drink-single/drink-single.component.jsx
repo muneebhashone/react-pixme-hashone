@@ -40,14 +40,20 @@ function ProductSingle() {
         <title>{`${singleFlavour.wine_flavour_name} | Pix Me A Drink`}</title>
         <meta
           data-react-helmet="true"
+          name="title"
+          content={singleFlavour.meta_title}
+        />
+        <meta
+          data-react-helmet="true"
           name="description"
           content={singleFlavour.meta_description}
         />
         <meta
           data-react-helmet="true"
-          name="title"
-          content={singleFlavour.meta_title}
+          name="keywords"
+          content={singleFlavour.keywords}
         />
+
         <link
           rel="canonical"
           href={`https://pixmeadrink.com/flavours/${singleFlavour.slug}`}

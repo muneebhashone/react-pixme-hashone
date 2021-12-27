@@ -40,13 +40,18 @@ function FlavoursOverview() {
         <title>{`${singleDrink?.wine_brand?.brand_title} | Pix Me A Drink`}</title>
         <meta
           data-react-helmet="true"
+          name="title"
+          content={singleDrink?.meta_title}
+        />
+        <meta
+          data-react-helmet="true"
           name="description"
           content={singleDrink?.meta_description}
         />
         <meta
           data-react-helmet="true"
-          name="title"
-          content={singleDrink?.meta_title}
+          name="keywords"
+          content={singleDrink?.keywords}
         />
         <link
           rel="canonical"
