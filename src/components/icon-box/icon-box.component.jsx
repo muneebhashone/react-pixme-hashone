@@ -4,7 +4,7 @@ import "./icon-box.styles.css";
 
 function IconBox({ Icon, subtitle, title, linkTo = "#" }) {
   return (
-    <Link to={linkTo} className="icon-box">
+    <Link to={{pathname: linkTo}} className="icon-box" target="_blank">
       <div className="icon-box_icon">
         <Icon />
       </div>

@@ -113,6 +113,7 @@ function ProductSingle() {
           <IconBox
             Icon={FaGooglePlay}
             subtitle="Available on the"
+            linkTo="https://play.google.com/store/apps/details?id=com.wine.shake"
             title="Google Play"
           />
         </div>
