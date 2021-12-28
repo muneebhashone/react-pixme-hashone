@@ -27,7 +27,9 @@ function HamburgerMenu({ children, ...props }) {
         <div className="drawer-close-icon" onClick={handleOnClose}>
           <AiOutlineCloseCircle />
         </div>
-        <div className="drawer-container">{children}</div>
+        <div onClick={handleOnClose} className="drawer-container">
+          {children}
+        </div>
       </Drawer>
     </div>
   );

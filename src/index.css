@@ -71,3 +71,7 @@ h6,
 button {
   font-family: "Raleway", sans-serif !important;
 }
+
+.MuiPagination-ul {
+  justify-content: center;
+}

@@ -77,7 +77,7 @@ function Header({ variation }) {
                 <Link to={`${URL}/signup`}>Sign Up</Link>
                 <Link to={`${URL}/login`}>Login</Link>
               </div>
-              <div>
+              <div className="app-btns">
                 <IconBox
                   Icon={FaApple}
                   subtitle="Download on the"

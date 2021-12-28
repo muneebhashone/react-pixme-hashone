@@ -31,4 +31,8 @@
   .icon-box_right .icon-box_right-title {
     font-size: 1em;
   }
+
+  .icon-box {
+    font-size: 15px;
+  }
 }
