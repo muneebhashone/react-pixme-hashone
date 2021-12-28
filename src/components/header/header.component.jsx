@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import user from "../../assets/user.png";
 import { BsSearch, BsGrid3X3Gap } from "react-icons/bs";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 import { useHistory, useLocation } from "react-router-dom";
 import { Container, Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCurrentUser } from "../../redux/user/user.action";
 import SearchInput from "../search-input/search-input.component";
 import { URL } from "../../config";
+import HamBurgerMenu from "../hamburger-menu/hamburger.component";
+import IconBox from "../icon-box/icon-box.component";
 import "./header.styles.css";
 
 function Header({ variation }) {
@@ -67,6 +70,27 @@ function Header({ variation }) {
                 </>
               )}
             </div>
+            <HamBurgerMenu className="responsive-menu">
+              <div className="links">
+                <Link to={`${URL}/drinks`}>Spirits</Link>
+                <Link to={`${URL}/flavours`}>Ingredients</Link>
+                <Link to={`${URL}/signup`}>Sign Up</Link>
+                <Link to={`${URL}/login`}>Login</Link>
+              </div>
+              <div>
+                <IconBox
+                  Icon={FaApple}
+                  subtitle="Download on the"
+                  title="App Store"
+                />
+                <IconBox
+                  Icon={FaGooglePlay}
+                  subtitle="Available on the"
+                  linkTo="https://play.google.com/store/apps/details?id=com.wine.shake"
+                  title="Google Play"
+                />
+              </div>
+            </HamBurgerMenu>
           </div>
         </div>
       </Container>

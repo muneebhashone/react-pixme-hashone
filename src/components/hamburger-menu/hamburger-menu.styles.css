@@ -1,0 +1,39 @@
+.drawer-container,
+.drawer-container .links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.drawer-close-icon {
+  font-size: 30px;
+  text-align: right;
+  margin-right: 15px;
+  margin-top: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.drawer-close-icon:hover {
+  color: #c1272d;
+}
+
+.drawer-container .links a {
+  padding: 15px 40px;
+  padding-right: 100px;
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.drawer-container .links a:hover {
+  background-color: #c1272d;
+  color: white;
+}
+
+.hamburger-icon {
+  color: white;
+  font-size: 24px;
+}

@@ -95,8 +95,20 @@ button.header_search-btn {
   object-fit: cover;
 }
 
+.responsive-menu {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .header_nav-items {
-    flex-direction: column;
+    display: none;
+  }
+
+  .responsive-menu {
+    display: block;
+  }
+
+  .header_brand img {
+    height: 60px;
   }
 }
