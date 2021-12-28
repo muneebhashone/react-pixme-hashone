@@ -98,7 +98,7 @@ p.product-single_paragraph {
   width: 80%;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .product-single_bottom {
     flex-direction: column-reverse;
     gap: 30px;
@@ -124,9 +124,10 @@ p.product-single_paragraph {
 
   .product-single_bottom-btns {
     flex-direction: column;
+    margin-top: 60px;
   }
 
-  .product-single_bottom-btns {
-    margin-top: 60px;
+  .product-single_bottom {
+    margin-top: 30px;
   }
 }

@@ -69,7 +69,7 @@ form.home_search input::placeholder {
   color: #bfbfbf;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .home {
     font-size: 6px;
   }
@@ -79,7 +79,7 @@ form.home_search input::placeholder {
   }
 
   form.home_search {
-    width: 100%;
+    width: 90%;
     overflow: visible;
   }
 
@@ -96,5 +96,10 @@ form.home_search input::placeholder {
     margin: 0;
     width: 100%;
     height: 51px;
+  }
+
+  .home_btns {
+    flex-direction: column;
+    gap: 10px;
   }
 }

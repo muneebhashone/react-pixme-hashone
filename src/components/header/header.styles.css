@@ -94,3 +94,9 @@ button.header_search-btn {
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 600px) {
+  .header_nav-items {
+    flex-direction: column;
+  }
+}

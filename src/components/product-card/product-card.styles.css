@@ -72,3 +72,13 @@
   background-color: white;
   color: gold;
 }
+
+@media (max-width: 600px) {
+  .product-card_top {
+    height: 200px;
+  }
+
+  .product-card_image img {
+    object-fit: contain;
+  }
+}
