@@ -97,3 +97,36 @@ p.product-single_paragraph {
 .product-single_last {
   width: 80%;
 }
+
+@media only screen and (max-width: 600px) {
+  .product-single_bottom {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .product-single_img {
+    text-align: center;
+  }
+
+  .product-single_last {
+    width: 100%;
+    text-align: center;
+  }
+
+  h2.product-single_heading {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  li.ingredients-list-item {
+    font-size: 14px;
+  }
+
+  .product-single_bottom-btns {
+    flex-direction: column;
+  }
+
+  .product-single_bottom-btns {
+    margin-top: 60px;
+  }
+}

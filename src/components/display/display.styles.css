@@ -5,8 +5,16 @@
   margin-bottom: 30px;
 }
 
+.display_img {
+  max-width: 430px;
+  text-align: center;
+  overflow: hidden;
+}
+
 .display_img img {
-  width: 430px;
+  width: 100%;
+  object-fit: contain;
+  text-align: center;
 }
 
 h1.display_title {
@@ -21,7 +29,7 @@ p.display_desc {
 }
 
 .display_stars-container {
-  margin-top: 45px;
+  margin-top: 20px;
 }
 
 .display_stars-total {
@@ -38,4 +46,10 @@ p.display_desc {
   font-size: 20px;
   align-items: center;
   gap: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+  .display {
+    flex-direction: column-reverse;
+  }
 }

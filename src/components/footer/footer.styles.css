@@ -37,3 +37,13 @@ ul.footer_menu li {
 .footer {
   padding: 20px 0px;
 }
+
+@media only screen and (max-width: 600px) {
+  .footer_copyright {
+    font-size: 12px;
+  }
+  .footer .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
