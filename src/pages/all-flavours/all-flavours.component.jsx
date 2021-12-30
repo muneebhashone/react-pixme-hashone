@@ -38,10 +38,10 @@ function DrinksOverview() {
     <Container>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Tasty Ingredients to Reinvent Your Drink | Pix Me A Drink</title>
+        <title>Flavor Alcohol Drinks | Alcohol Drinks Mix | Pix Me A Drink</title>
         <meta
           name="title"
-          content="Flavor Alcohol Drinks | Alcohol Drinks Mix | Pix Me A Drink "
+          content="Flavor Alcohol Drinks | Alcohol Drinks Mix | Pix Me A Drink"
         />
         <meta
           name="description"

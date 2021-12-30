@@ -37,7 +37,7 @@ function ProductSingle() {
     <Container>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{`${singleFlavour.wine_flavour_name} | Pix Me A Drink`}</title>
+        <title>{`${singleFlavour.meta_title} | Pix Me A Drink`}</title>
         <meta
           data-react-helmet="true"
           name="title"

@@ -37,7 +37,7 @@ function DrinksOverview() {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          Re-Spirit Your Life with Flavorful Drinks | Pix Me A Drink
+          Spirits Drink | Alcoholic Drinks Brands | Pix Me A Drink
         </title>
         <meta
           data-react-helmet="true"

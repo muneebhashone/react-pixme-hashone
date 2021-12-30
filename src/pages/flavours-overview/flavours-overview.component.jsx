@@ -37,7 +37,7 @@ function FlavoursOverview() {
     <Container>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{`${singleDrink?.wine_brand?.brand_title} | Pix Me A Drink`}</title>
+        <title>{`${singleDrink?.meta_title} | Pix Me A Drink`}</title>
         <meta
           data-react-helmet="true"
           name="title"

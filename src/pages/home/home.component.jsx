@@ -17,7 +17,7 @@ function Home() {
     >
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Your Favorite Drink Has a Story to Tell | Pix Me A Drink</title>
+        <title>Cocktails and Spirits | Spirits Recipes | Pix Me A Drink</title>
         <meta
           name="title"
           content="Cocktails and Spirits | Spirits Recipes | Pix Me A Drink"
