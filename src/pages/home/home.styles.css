@@ -78,7 +78,9 @@ form.home_search input::placeholder {
   }
 
   h1.home_main-heading {
-    width: 80%;
+    width: 90%;
+    font-weight: 700;
+    font-size: 32px;
   }
 
   form.home_search {
@@ -95,7 +97,7 @@ form.home_search input::placeholder {
     width: 27%;
     background: white;
     border-radius: 100px;
-    height: 45px;
+    height: 38px;
     margin-right: 5px;
     font-size: 12px;
   }
@@ -103,12 +105,23 @@ form.home_search input::placeholder {
   button.home_search-btn {
     margin: 0;
     width: 70%;
-    height: 45px;
+    height: 38px;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .home_btns {
-    display: none;
+    /* display: none; */
+    margin-top: 15px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  form.home_search {
+    height: 40px;
+  }
+
+  form.home_search input {
+    font-size: 14px;
   }
 }
