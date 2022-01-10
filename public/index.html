@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> 
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#004ba0" data-react-helmet="true" />
-    
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -21,18 +21,60 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
     <!-- Google Search Console -->
-    <meta name="google-site-verification" content="2nEuyPgETdEJZJFUOFi0y-8RF13QZXIcyWgQmhbs8wY" />
+    <meta
+      name="google-site-verification"
+      content="2nEuyPgETdEJZJFUOFi0y-8RF13QZXIcyWgQmhbs8wY"
+    />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ1BTTT66N"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DZ1BTTT66N"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-DZ1BTTT66N');
+      gtag("config", "G-DZ1BTTT66N");
     </script>
 
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "1094878521331496");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1094878521331496&ev=PageView&noscript=1"
+    /></noscript>
 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
