@@ -8,6 +8,7 @@ import AllFlavours from "./pages/all-flavours/all-flavours.component";
 import DrinkSingle from "./pages/drink-single/drink-single.component";
 import Signup from "./pages/signup/signup.component";
 import Login from "./pages/login/login.component";
+import PrivacyPolicy from "./pages/privacy-policy/privacy-policy.component";
 import Recover from "./pages/recover/recover.component";
 import Profile from "./pages/admin/profile/profile.component";
 import Subscription from "./pages/admin/subscription/subscription.component";
@@ -89,6 +90,15 @@ function App() {
         <Route path={`${URL}/customer`}>
           <Header />
           <Profile />
+          <Footer />
+        </Route>
+        <Route path={`${URL}/privacy-policy`}>
+          <Header />
+          <PrivacyPolicy />
+          <Footer />
+        </Route>
+        <Route path={`${URL}/terms-of-use`}>
+          <Header />
           <Footer />
         </Route>
       </Switch>

@@ -10,15 +10,15 @@ function Footer({ variation }) {
         <div className="container">
           <ul className="footer_menu">
             <li className="footer_menu-list-item">
-              <Link to="#">Privacy Policy</Link>
+              <Link to="privacy-policy">Privacy Policy</Link>
             </li>
             <li className="footer_menu-list-item">&#x25CF;</li>
             <li className="footer_menu-list-item">
-              <Link to="#">Terms and Conditions</Link>
+              <Link to="privacy-policy">Terms and Conditions</Link>
             </li>
           </ul>
           <div className="footer_copyright">
-            Copyright &copy; 2021- Pix Me A Drink. All Copyrights Reserved.
+            Copyright &copy; 2022- Pix Me A Drink. All Copyrights Reserved.
           </div>
         </div>
       </Container>
