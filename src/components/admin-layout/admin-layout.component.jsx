@@ -77,11 +77,11 @@ function AdminLayout({ children, heading, active }) {
     setActiveTab(active);
   }, [setActiveTab]);
 
-  useEffect(() => {
-    if (!localStorage.getItem("currentUser")) {
-      history.push(`${URL}/login`);
-    }
-  }, [currentUser]);
+  // useEffect(() => {
+  //   if (!localStorage.getItem("currentUser")) {
+  //     history.push(`${URL}/login`);
+  //   }
+  // }, [currentUser]);
 
   return (
     <div>
