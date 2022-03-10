@@ -40,8 +40,11 @@ const AgeRestriction = () => {
 
     if (isAllowed !== null) {
       isAllowed = Number(isAllowed);
-      console.log(isAllowed);
-      isAllowed ? setOpen(false) : setAllowed(false);
+
+      if (isAllowed) {
+        setOpen(false);
+        setAllowed(true);
+      }
     }
   };
 
@@ -49,7 +52,7 @@ const AgeRestriction = () => {
     const age = calculateAge(selectedDate);
     if (age < ageLimit) {
       alert("You are not allowed to visit this site");
-      localStorage.setItem("ageAllowed", "0");
+      setAllowed(false);
     } else {
       setOpen(false);
       localStorage.setItem("ageAllowed", "1");
